@@ -18,8 +18,8 @@ if: $ftd.device == mobile
 -- optional string site-name:  CHROME DEVELOPER
 
 -- optional ftd.image-src site-logo:
-dark: $assets.files.static.fifthtry-logo.svg.dark
-light: $assets.files.static.fifthtry-logo.svg..light
+dark: $assets.files.static.static.fifthtry-logo.svg.dark
+light: $assets.files.static.static.fifthtry-logo.svg..light
 
 -- string site-url: NA
 
@@ -29,7 +29,7 @@ light: $assets.files.static.fifthtry-logo.svg..light
 -- ft.page: 
 
 -- hero-section: LOREM LIPSUM
-image-hero: $assets.files.hero-bg.jpg
+image-hero: $assets.files.static.hero-bg.jpg
 hero-cta-text: click here to know
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
@@ -38,9 +38,9 @@ irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
 nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa 
 
 -- featured-card-one: LOREM LIPSUM
-logo: $assets.files.chrome.png
+logo: $assets.files.static.chrome.png
 site-name: features
-feature-image: $assets.files.hero-bg.jpg
+feature-image: $assets.files.static.hero-bg.jpg
 people-list: $people-list
 date: aug 21 2021
 cta-text: click 
@@ -50,15 +50,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 
 -- docs-card: LOREM LIPSUM
 docs-list: $docs-list
-logo: $assets.files.chrome.png
+logo: $assets.files.static.chrome.png
 cta: all documentation
 cta-url: /
 
 
 -- featured-card-one: LOREM LIPSUM
-logo: $assets.files.chrome.png
+logo: $assets.files.static.chrome.png
 site-name: features
-feature-image: $assets.files.hero-bg.jpg
+feature-image: $assets.files.static.hero-bg.jpg
 people-list: $people-list
 date: aug 21 2021
 cta-text: click 
@@ -68,7 +68,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 
 
 -- feature-card-one: LOREM LIPSUM
-logo:  $assets.files.hero-bg.jpg
+logo:  $assets.files.static.hero-bg.jpg
 version-list: $version-list
 
 
@@ -77,7 +77,7 @@ version-list: $version-list
 
 
 -- info-card: LOREM LIPSUM
-logo: $assets.files.hero-bg.jpg
+logo: $assets.files.static.hero-bg.jpg
 cta-text: click
 cta-text-url: /
 
@@ -85,10 +85,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
 
 -- featured-card: LOREM LIPSUM
-logo: $assets.files.chrome.png
+logo: $assets.files.static.chrome.png
 sub-title: Lorem ipsum dolor sit amet
 feature-list: $feature-list
-feature-image: $assets.files.hero-bg.jpg
+feature-image: $assets.files.static.hero-bg.jpg
 explore-text: explore
 report-text: report
 explore-text-url: /
@@ -899,16 +899,16 @@ ftd.image-src image:
 -- docs list docs-list:
 
 -- docs-list: cDoc
-image: $assets.files.doc-framework.png
+image: $assets.files.static.doc-framework.png
 
 -- docs-list: FPM
-image: $assets.files.fpm.png
+image: $assets.files.static.fpm.png
 
 -- docs-list: FTD
-image: $assets.files.ftd.png
+image: $assets.files.static.ftd.png
 
 -- docs-list: DF
-image: $assets.files.home.png
+image: $assets.files.static.home.png
 
 
 -- ftd.column docs-card:
@@ -1032,7 +1032,7 @@ border-radius: 6
 width: 88
 height: 88 
 z-index: 2
-background-image: $assets.files.box-image.png
+background-image: $assets.files.static.box-image.png
 
 --- ftd.column: 
 align: center
@@ -1085,7 +1085,7 @@ border-radius: 6
 width: 88
 height: 88 
 z-index: 2
-background-image: $assets.files.box-image.png
+background-image: $assets.files.static.box-image.png
 
 --- ftd.column:
 align: center
@@ -1122,22 +1122,22 @@ boolean is-last: false
 
 -- people-list:
 name: lorem
-avatar: $assets.files.avatar.png
+avatar: $assets.files.static.avatar.png
 is-first: true
 
 -- people-list:
 name: lorem
-avatar: $assets.files.avatar.png
+avatar: $assets.files.static.avatar.png
 
 
 -- people-list:
 name: lorem
-avatar: $assets.files.avatar.png
+avatar: $assets.files.static.avatar.png
 
 
 -- people-list:
 name: lorem
-avatar: $assets.files.avatar.png
+avatar: $assets.files.static.avatar.png
 is-last: true
 
 -- ftd.column blog-info-card:
