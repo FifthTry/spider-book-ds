@@ -1,0 +1,169 @@
+-- import: fpm
+-- import: fifthtry.github.io/chrome-book-ds as ft
+
+-- ft.page:
+
+
+-- participate-full-page: LOREM LIPSUM
+day: monday
+date: 31 aug 2022
+people-list: $people-list
+sub-title: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed interdum orci, 
+vel lacinia dui. Cras eget est sed dolor sagittis interdum non vel turpis. 
+
+Integer sed tincidunt arcu. Duis non magna rhoncus, eleifend elit at, tincidunt 
+ex. Phasellus tempus maximus gravida. Nam varius quis libero in ultricies. Donec
+
+euismod eget massa sed pellentesque. Mauris semper justo ac velit elementum 
+sagittis. Cras scelerisque diam ante. Duis semper risus nec lectus consectetur,
+
+id fermentum nisl tristique. Donec id tristique mi, id pulvinar enim. Vivamus 
+accumsan ipsum pulvinar, vehicula urna ac, ullamcorper tellus.
+
+-- record people:
+ftd.image-src avatar:
+caption name:
+string profile:
+boolean is-first: false
+boolean is-last: false
+
+-- people list people-list:
+
+-- people-list:
+name: lorem
+avatar: $assets.files.static.avatar.png
+profile: Lorem ipsum dolor sit amet consectetur
+is-first: true
+
+-- people-list:
+name: lorem
+profile: Lorem ipsum dolor sit amet consectetur
+avatar: $assets.files.static.avatar.png
+
+
+-- people-list:
+name: lorem
+profile: Lorem ipsum dolor sit amet consectetur
+avatar: $assets.files.static.avatar.png
+
+
+-- people-list:
+name: lorem
+profile: Lorem ipsum dolor sit amet consectetur
+avatar: $assets.files.static.avatar.png
+is-last: true
+
+
+
+
+
+-- ftd.column participate-full-page:
+caption title:
+string sub-title:
+body body:
+string date:
+string day:
+people list people-list:
+spacing: 8
+
+--- ftd.text: $title
+role: $fpm.type.heading-hero
+color: $fpm.color.main.text-strong
+
+
+--- ftd.text: $sub-title
+role: $fpm.type.copy-large
+color: $fpm.color.main.text
+
+
+--- ftd.row:
+width: fill
+
+--- ftd.text: Published on 
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+
+--- ftd.text: $day
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+margin-left: 4
+
+
+--- ftd.text: ,
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+
+--- ftd.text: $date
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+
+
+
+
+--- container: ftd.main
+
+--- ftd.row:
+width: fill
+wrap: true
+
+--- people-loop-full:
+avatar: $obj.avatar
+name: $obj.name
+profile: $obj.profile
+$loop$: $people-list as $obj
+
+
+--- container: ftd.main
+
+--- ftd.text: 
+text: $body
+role: $fpm.type.copy-relaxed
+color: $fpm.color.main.text
+margin-top: 28
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.row people-loop-full:
+ftd.image-src avatar:
+caption name:
+string profile:
+width: percent 48
+width if $ft.is-mobile: fill
+spacing: 16
+margin-bottom: 16
+margin-top: 40
+margin-bottom if $ft.is-mobile: 16
+margin-top if $ft.is-mobile: 16
+
+--- ftd.image:
+src: $avatar
+width: 44
+height: auto
+border-radius: 500
+border-color: $fpm.color.main.text
+border-width: 1
+
+
+--- container: ftd.main
+
+--- ftd.column:
+spacing: 4
+--- ftd.text: $name
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+
+--- ftd.text: $profile
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+

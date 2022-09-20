@@ -1,0 +1,1319 @@
+-- import: fifthtry.github.io/chrome-book-ds as ft
+-- import: fpm
+
+
+-- optional string copyright: © 2022 FifthTry. All rights reserved
+
+-- boolean sidebar-open: false
+
+-- fpm.sitemap-data sitemap:
+$processor$: sitemap
+
+-- boolean is-mobile: false
+
+-- is-mobile: true
+if: $ftd.device == mobile
+
+
+-- optional string site-name:  CHROME DEVELOPER
+
+-- optional ftd.image-src site-logo:
+dark: $assets.files.static.site-icon.png.dark
+light: $assets.files.static.site-icon.png.light
+
+-- string site-url: NA
+
+
+
+
+-- ft.page: 
+
+-- hero-section: LOREM LIPSUM
+image-hero: $assets.files.hero-bg.jpg
+hero-cta-text: click here to know
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
+nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa 
+
+-- featured-card-one: LOREM LIPSUM
+logo: $assets.files.chrome.png
+site-name: features
+feature-image: $assets.files.hero-bg.jpg
+people-list: $people-list
+date: aug 21 2021
+cta-text: click 
+cta-text-url: /
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+
+-- docs-card: LOREM LIPSUM
+docs-list: $docs-list
+logo: $assets.files.chrome.png
+cta: all documentation
+cta-url: /
+
+
+-- featured-card-one: LOREM LIPSUM
+logo: $assets.files.chrome.png
+site-name: features
+feature-image: $assets.files.hero-bg.jpg
+people-list: $people-list
+date: aug 21 2021
+cta-text: click 
+cta-text-url: /
+ 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+
+
+-- feature-card-one: LOREM LIPSUM
+logo:  $assets.files.hero-bg.jpg
+version-list: $version-list
+
+
+
+
+
+
+-- info-card: LOREM LIPSUM
+logo: $assets.files.hero-bg.jpg
+cta-text: click
+cta-text-url: /
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+
+-- featured-card: LOREM LIPSUM
+logo: $assets.files.chrome.png
+sub-title: Lorem ipsum dolor sit amet
+feature-list: $feature-list
+feature-image: $assets.files.hero-bg.jpg
+explore-text: explore
+report-text: report
+explore-text-url: /
+report-text-url: /
+
+
+
+
+
+
+-- record emoji:
+string  emoji:
+caption title:
+
+-- record hashtag:
+caption title:
+string url:
+
+-- hashtag list hashtag-list:
+
+-- hashtag-list: lorem
+url: /
+
+-- hashtag-list: lorem
+url: /
+
+-- hashtag-list: lorem
+url: /
+
+-- hashtag-list: lorem
+url: /
+
+
+-- hashtag-list: lorem
+url: /
+           
+-- hashtag-list: lorem
+url: /
+           
+-- hashtag-list: lorem
+url: /
+           
+-- hashtag-list: lorem
+url: /
+          
+-- emoji list emoji-list:
+
+-- emoji-list: Lorem ipsum dolor sit amet, consectetur adipiscing 
+emoji: 💫
+
+-- emoji-list: Lorem ipsum dolor sit amet, consectetur adipiscing 
+emoji: 🌟
+
+-- emoji-list: Lorem ipsum dolor sit amet, consectetur adipiscing 
+emoji: 💥
+
+
+-- record feature:
+caption title:
+integer index:
+
+-- record version:
+body body:
+integer version-number:
+ftd.color bg-color:
+ftd.color text-color:
+
+-- version list version-list:
+
+-- version-list: 
+version-number: 102
+bg-color: $fpm.color.main.border-strong
+text-color: $fpm.color.main.cta-primary.base
+
+Lorem lipsum Lorem lipsum Lorem lipsum Lorem lipsum Lorem lipsum
+
+
+-- version-list: 
+version-number: 102
+bg-color: $fpm.color.main.success.text
+text-color: $fpm.color.main.success.border
+
+Lorem lipsum Lorem lipsum Lorem lipsum Lorem lipsum Lorem lipsum
+
+
+-- version-list: 
+version-number: 102
+bg-color: $fpm.color.main.border
+text-color: $fpm.color.main.cta-primary.base
+
+Lorem lipsum Lorem lipsum Lorem lipsum Lorem lipsum Lorem lipsum
+
+
+
+-- feature list feature-list:
+
+
+
+-- feature-list: Lorem lipsum
+index: 1
+
+-- feature-list: Lorem lipsum
+index: 2
+
+-- feature-list: Lorem lipsum
+index: 3
+
+
+-- feature-list: Lorem lipsum
+index: 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.row hero-section:
+caption title:
+optional ftd.image-src image-hero:
+optional body hero-body:
+optional string hero-cta-text:
+width: fill
+background-color: $fpm.color.main.cta-secondary.border
+
+
+
+--- hero-section-desktop: $title
+if: not $is-mobile
+image-hero: $image-hero
+hero-body: $hero-body
+hero-cta-text: $hero-cta-text
+
+--- hero-section-mobile: $title
+if: $is-mobile
+image-hero: $image-hero
+hero-body: $hero-body
+hero-cta-text: $hero-cta-text
+
+-- ftd.row hero-section-desktop:
+caption title:
+optional ftd.image-src image-hero:
+optional body hero-body:
+optional string hero-cta-text:
+width: fill
+padding-vertical: 72
+padding-horizontal: 32
+border-radius: 12
+
+--- ftd.column:
+width: percent 50
+
+--- ftd.text: $title
+role: $fpm.type.heading-hero
+color: $fpm.color.main.cta-primary.base
+
+--- ftd.text:
+text: $hero-body
+role: $fpm.type.copy-relaxed
+color: $fpm.color.main.text
+margin-top: 16
+
+
+--- ftd.text: $hero-cta-text
+background-color: $fpm.color.main.cta-primary.base
+border-radius: 25
+color: $fpm.color.main.background.base
+role: $fpm.type.fine-print
+margin-top: 24
+padding-vertical: 8
+padding-horizontal: 24
+
+--- container: ftd.main
+
+--- ftd.image:
+src: $image-hero
+width: percent 50
+height: auto
+
+
+
+-- ftd.column hero-section-mobile:
+caption title:
+optional ftd.image-src image-hero:
+optional body hero-body:
+optional string hero-cta-text:
+width: fill
+padding-vertical: 24
+padding-horizontal: 24
+border-radius: 12
+spacing: 20
+
+
+
+--- ftd.text: $title
+role: $fpm.type.heading-hero
+color: $fpm.color.main.cta-primary.base
+
+--- ftd.text:
+text: $hero-body
+role: $fpm.type.copy-relaxed
+color: $fpm.color.main.text
+margin-top: 16
+
+
+--- ftd.text: $hero-cta-text
+background-color: $fpm.color.main.cta-primary.base
+border-radius: 25
+color: $fpm.color.main.background.base
+role: $fpm.type.fine-print
+margin-top: 24
+padding-vertical: 8
+padding-horizontal: 24
+
+
+
+--- ftd.image:
+src: $image-hero
+width: fill
+height: auto
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.column featured-card-one:
+width: fill
+max-width: 464
+width if $is-mobile: 342
+padding-horizontal: 24
+padding-top: 24
+padding-bottom: 16
+ftd.image-src logo:
+caption title:
+string site-name:
+body body:
+ftd.image-src feature-image:
+people list people-list:
+string date:
+string cta-text:
+string cta-text-url:
+border-radius: 12
+border-color: $fpm.color.main.text
+border-width: 1
+margin-top: 42
+
+
+--- ftd.row:
+width: fill
+
+--- ftd.image:
+src: $logo
+width: 16
+height: auto
+
+--- ftd.text: $site-name
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+margin-left: 32
+
+--- container: ftd.main
+
+--- ftd.image:
+src: $feature-image
+width: percent 100
+height: 190
+margin-top: 24
+
+
+--- ftd.text: 
+text: $title
+role: $fpm.type.heading-large
+color: $fpm.color.main.text
+margin-top: 16
+
+
+--- ftd.text: 
+text: $body
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+margin-top: 8
+
+--- ftd.row:
+margin-top: 24
+width: fill
+
+--- poeple-loop:
+people-list: $people-list
+
+--- container: ftd.main
+
+
+--- ftd.row:
+width: fill
+id: third-container
+margin-top: 24
+
+--- ftd.text: $cta-text
+link: $cta-text-url
+role: $fpm.type.fine-print
+color: $fpm.color.main.cta-primary.base
+padding-vertical: 8
+padding-horizontal: 8
+
+
+
+
+
+-- ftd.column featured-card:
+width: fill
+max-width: 464
+padding-horizontal: 24
+padding-top: 24
+padding-bottom: 16
+background-color: $fpm.color.main.success.text
+ftd.image-src logo:
+caption title:
+string sub-title:
+feature list feature-list:
+ftd.image-src feature-image:
+string explore-text:
+string report-text:
+string explore-text-url:
+string report-text-url:
+border-radius: 12
+margin-top: 42
+margin-bottom: 42
+
+
+--- ftd.row:
+id: first-row
+width: fill
+
+--- ftd.image:
+src: $logo
+width: 16
+height: auto
+padding-top: 4
+
+--- ftd.text: $title
+role: $fpm.type.copy-relaxed
+color: $fpm.color.main.success.border
+margin-left: 16
+
+--- container: ftd.main
+
+--- ftd.text: $sub-title
+role: $fpm.type.heading-small
+color: $fpm.color.main.success.border
+margin-top: 24
+
+--- container: ftd.main
+
+--- ftd.row:
+width: fill
+id: second-container
+align: center
+
+
+--- ftd.column:
+width: fill
+margin-top: 8
+
+--- feature-list-loop:
+index: $obj.index
+title: $obj.title
+$loop$: $feature-list as $obj
+
+--- container: second-container
+
+--- ftd.image:
+src: $feature-image
+width: 96
+max-width: fill
+height: auto
+align: center
+
+--- container: ftd.main
+
+--- ftd.row:
+width: fill
+id: third-container
+margin-top: 24
+
+--- ftd.text: $explore-text
+link: $explore-text-url
+role:$fpm.type.fine-print
+color: $fpm.color.main.success.border
+padding-vertical: 8
+padding-horizontal: 8
+
+--- ftd.text: $report-text
+link: $report-text-url
+role:$fpm.type.fine-print
+color: $fpm.color.main.success.border
+padding-vertical: 8
+padding-horizontal: 8
+margin-left: 16
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.row feature-list-loop:
+width: fill
+integer index:
+caption title:
+padding-vertical: 4
+
+--- ftd.row:
+id: first-container
+
+--- ftd.integer:  $index
+role: $fpm.type.copy-tight
+color: $fpm.color.main.text
+
+--- ftd.text: \.
+role: $fpm.type.copy-tight
+color: $fpm.color.main.text
+
+--- container: ftd.main
+
+--- ftd.text: $title
+role: $fpm.type.copy-tight
+color: $fpm.color.main.text
+margin-left: 8
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.column info-card:
+width: fill
+max-width: 464
+width if $is-mobile: 342
+padding-horizontal: 24
+padding-top: 24
+padding-bottom: 16
+border-color: $fpm.color.main.cta-secondary.focused
+border-width: 1
+ftd.image-src logo:
+caption title:
+body body:
+string cta-text:
+string cta-text-url:
+border-radius: 12
+margin-top: 42
+
+
+--- ftd.row:
+id: first-row
+width: fill
+
+--- ftd.image:
+src: $logo
+width: 16
+height: auto
+
+
+--- ftd.text: $title
+role: $fpm.type.fine-print
+color: $fpm.color.main.cta-primary.base
+margin-left: 16
+
+--- container: ftd.main
+
+--- ftd.text: 
+text: $body
+role: $fpm.type.copy-tight
+color: $fpm.color.main.text
+margin-top: 24
+
+--- container: ftd.main
+
+--- ftd.row:
+width: fill
+id: third-container
+margin-top: 24
+
+--- ftd.text: $cta-text
+link: $cta-text-url
+role: $fpm.type.fine-print
+color: $fpm.color.main.cta-primary.base
+padding-vertical: 8
+padding-horizontal: 8
+
+
+
+
+
+
+
+
+-- ftd.column feature-card-one:
+width: fill
+max-width: 464
+width if $is-mobile: 342
+padding-horizontal: 24
+padding-top: 24
+padding-bottom: 16
+border-color: $fpm.color.main.cta-secondary.focused
+border-width: 1
+ftd.image-src logo:
+caption title:
+version list version-list:
+border-radius: 12
+spacing: 8
+margin-top: 42
+
+
+--- ftd.row:
+id: first-row
+width: fill
+
+--- ftd.image:
+src: $logo
+width: 16
+height: auto
+
+
+--- ftd.text: $title
+role: $fpm.type.fine-print
+color: $fpm.color.main.cta-primary.base
+margin-left: 16
+
+--- container: ftd.main
+
+--- ftd.row:
+if: not $is-mobile
+width: fill
+wrap: true
+
+--- version-list-loop:
+version-number: $obj.version-number
+body: $obj.body
+bg-color: $obj.bg-color
+text-color: $obj.text-color
+$loop$: $version-list as $obj
+
+--- container: ftd.main
+
+--- ftd.column:
+if: $is-mobile
+width: fill
+
+
+
+--- version-list-loop:
+version-number: $obj.version-number
+body: $obj.body
+bg-color: $obj.bg-color
+text-color: $obj.text-color
+$loop$: $version-list as $obj
+
+-- ftd.row version-list-loop:
+width: fill
+max-width: 206
+integer version-number:
+ftd.color bg-color:
+ftd.color text-color:
+caption body:
+padding-vertical: 4
+align if $is-mobile: center
+
+--- ftd.column:
+width: fill
+id: version-box-container
+spacing: 16
+margin-left: 16
+margin-top: 16
+margin-right: 16
+margin-bottom: 16
+
+
+--- ftd.row:
+background-color: $bg-color
+color: $text-color
+width: 120
+height: 120
+align: center
+margin-left: 24
+margin-right: 24
+border-radius: 100
+
+--- ftd.column:
+width: fill
+align: center
+
+--- ftd.integer: $version-number
+role: $fpm.type.heading-large
+color: $text-color
+align: center
+
+--- container: version-box-container
+
+--- ftd.text:
+text: $body
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+
+
+
+
+-- ftd.column feature-card-two:
+ftd.image-src logo:
+caption title:
+string date:
+body body:
+emoji list emoji-list:
+string more-text:
+ftd.image-src src:
+string cta-id:
+string cta-url:
+hashtag list hashtag-list:
+string explore-text:
+string explore-text-url:
+width: fill
+max-width: 464
+padding-vertical: 24
+padding-horizontal: 24
+margin-top: 42
+border-color: $fpm.color.main.text
+border-width: 1
+border-radius: 12
+spacing: 16
+
+--- ftd.row:
+width: fill
+
+--- ftd.image:
+src: $logo
+width: 16
+height: auto
+
+--- ftd.text: $title
+role: $fpm.type.fine-print
+color: $fpm.color.main.cta-primary.base
+
+--- container: ftd.main
+
+--- ftd.text: $date
+role: $fpm.type.fine-print
+color: $fpm.color.main.cta-primary.base
+margin-top: 24
+
+--- ftd.text:
+text: $body
+role: $fpm.type.copy-relaxed
+color: $fpm.color.main.text
+
+
+--- emoji-list-loop:
+emoji: $obj.emoji
+title: $obj.title
+$loop$: $emoji-list as $obj
+
+--- ftd.text: $more-text
+role: $fpm.type.copy-tight
+color: $fpm.color.main.text
+
+--- ftd.row:
+width: fill
+wrap: true
+
+
+--- ftd.text: $cta-id
+link: $cta-url
+role: $fpm.type.copy-tight
+color: $fpm.color.main.text
+margin-right: 32
+
+--- hashtag-list-loop:
+url: $obj.url
+title: $obj.title
+$loop$: $hashtag-list as $obj
+
+--- container: ftd.main
+
+--- ftd.image:
+src: $src
+width: fill
+height: auto
+
+-- ftd.row hashtag-list-loop:
+caption title:
+string url:
+width: auto
+margin-right: 32
+
+
+--- ftd.text: /\#
+role: $fpm.type.copy-tight
+color: $fpm.color.main.cta-primary.base
+
+--- ftd.text: $title
+role: $fpm.type.copy-tight
+color: $fpm.color.main.cta-primary.base
+link: $url
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.row emoji-list-loop:
+string emoji:
+caption title:
+max-width: 800
+margin-bottom: $fpm.space.space-3
+width: auto
+spacing: 10
+
+--- ftd.text:
+text: $emoji
+color:$fpm.color.main.text
+role: $fpm.type.copy-tight 
+
+--- ftd.text:
+text: $title
+color: $fpm.color.main.text
+role: $fpm.type.copy-tight 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- record docs:
+caption title:
+ftd.image-src image:
+
+-- docs list docs-list:
+
+-- docs-list: cDoc
+image: $assets.files.doc-framework.png
+
+-- docs-list: FPM
+image: $assets.files.fpm.png
+
+-- docs-list: FTD
+image: $assets.files.ftd.png
+
+-- docs-list: DF
+image: $assets.files.home.png
+
+
+-- ftd.column docs-card:
+width: fill
+max-width: 464
+width if $is-mobile: 342
+padding-right: 26
+padding-top: 24
+padding-bottom: 16
+border-color: $fpm.color.main.cta-secondary.focused
+border-width: 1
+border-radius: 12
+docs list docs-list:
+caption title:
+ftd.image-src logo:
+string cta:
+string cta-url:
+spacing: 24
+margin-top: 42
+
+
+--- ftd.row:
+width: fill
+padding-left: 26
+
+--- ftd.image:
+src: $logo
+width: 16
+height: auto
+
+
+--- ftd.text: $title
+role: $fpm.type.fine-print
+color: $fpm.color.main.cta-primary.base
+margin-left: 32
+
+
+--- container: ftd.main
+
+--- ftd.row:
+wrap: true
+width: fill
+
+--- docs-info-card:
+title: $obj.title
+image: $obj.image
+$loop$: $docs-list as $obj
+
+--- container: ftd.main
+
+--- ftd.text: $cta
+role: $fpm.type.fine-print
+color: $fpm.color.main.cta-primary.base
+link: $cta-url
+padding-left: 26
+padding-vertical:8
+
+
+
+
+
+
+-- ftd.column docs-info-card:
+caption title:
+ftd.image-src image:
+boolean show-shrink: false
+width if not $is-mobile: percent 42
+width if  $is-mobile: percent 36
+border-radius: 8
+padding-bottom: 25
+padding-top: 40
+padding-horizontal: 24
+z-index: 1
+margin-left: 32
+background-color if $MOUSE-IN: $fpm.color.main.accent.tertiary
+
+--- ftd.column:
+id: change
+width: 88
+height: 88 
+$on-mouse-enter$: $show-shrink = true
+$on-mouse-leave$: $show-shrink = false
+align: center
+
+--- ftd.row:
+width: fill
+if: not $show-shrink
+id: shrink-container
+
+--- ftd.row:
+background-color: $fpm.color.main.border
+border-radius: 6
+bottom: 0
+anchor: parent
+right: 0
+move-up: 16
+move-left: 12
+z-index: -4
+width: 62
+height: 88
+
+--- container: shrink-container
+
+--- ftd.row:
+background-color: $fpm.color.main.accent.secondary
+border-radius: 6
+width: 76
+height: 88 
+bottom: 0
+anchor: parent
+right: 0
+move-left: 7
+move-up: 9
+z-index: -3
+
+--- container: shrink-container
+
+--- ftd.row:
+background-color: $fpm.color.main.cta-primary.text
+border-radius: 6
+width: 88
+height: 88 
+z-index: 2
+background-image: $assets.files.box-image.png
+
+--- ftd.column: 
+align: center
+width: fill
+
+--- ftd.image:
+src: $image
+width: 24
+height: 24 
+align: center
+
+--- container: change
+
+--- ftd.row:
+if: $show-shrink
+width: fill
+id: show-container
+
+--- ftd.row:
+background-color: $fpm.color.main.border
+border-radius: 6
+bottom: 0
+anchor: parent
+right: 0
+move-up: 8
+move-left: 2
+z-index: -4
+width: 80
+height: 88
+
+--- container: show-container
+
+--- ftd.row:
+background-color: $fpm.color.main.accent.secondary
+border-radius: 6
+width: 84
+height: 88 
+bottom: 0
+anchor: parent
+right: 0
+move-up: 4
+move-left: 2
+z-index: -3
+
+--- container: show-container
+
+--- ftd.row:
+background-color: $fpm.color.main.cta-primary.text
+border-radius: 6
+width: 88
+height: 88 
+z-index: 2
+background-image: $assets.files.box-image.png
+
+--- ftd.column:
+align: center
+width: fill
+
+--- ftd.image:
+src: $image
+width: 24
+height: 24
+align: center
+
+--- container: ftd.main
+
+--- ftd.text: $title
+width: fill
+role: $fpm.type.fine-print
+text-align: center
+margin-top: 12
+
+
+
+
+
+
+
+-- record people:
+ftd.image-src avatar:
+caption name:
+optional string profile:
+boolean is-first: false
+boolean is-last: false
+
+-- people list people-list:
+
+-- people-list:
+name: lorem
+avatar: $assets.files.avatar.png
+is-first: true
+
+-- people-list:
+name: lorem
+avatar: $assets.files.avatar.png
+
+
+-- people-list:
+name: lorem
+avatar: $assets.files.avatar.png
+
+
+-- people-list:
+name: lorem
+avatar: $assets.files.avatar.png
+is-last: true
+
+-- ftd.column blog-info-card:
+width: fill
+max-width: 464
+padding-horizontal: 24
+padding-top: 24
+padding-bottom: 16
+border-color: $fpm.color.main.cta-secondary.focused
+border-width: 1
+ftd.image-src logo:
+caption title:
+string sub-title:
+body body:
+people list people-list:
+string cta-text:
+string cta-text-url:
+border-radius: 12
+
+
+--- ftd.row:
+id: first-row
+width: fill
+
+--- ftd.image:
+src: $logo
+width: 16
+height: auto
+
+
+--- ftd.text: $title
+role: $fpm.type.fine-print
+color: $fpm.color.main.cta-primary.base
+margin-left: 16
+
+--- container: ftd.main
+
+
+--- ftd.text: 
+text: $sub-title
+role: $fpm.type.copy-tight
+color: $fpm.color.main.text
+margin-top: 24
+
+--- ftd.text: 
+text: $body
+role: $fpm.type.copy-tight
+color: $fpm.color.main.text
+margin-top: 24
+
+--- container: ftd.main
+
+--- ftd.row:
+width: fill
+margin-top: 24
+
+
+--- poeple-loop:
+people-list: $people-list
+
+
+
+--- container: ftd.main
+
+--- ftd.row:
+width: fill
+id: third-container
+margin-top: 24
+
+--- ftd.text: $cta-text
+link: $cta-text-url
+role: $fpm.type.fine-print
+color: $fpm.color.main.cta-primary.base
+padding-vertical: 8
+padding-horizontal: 8
+
+
+
+-- ftd.row poeple-loop:
+people list people-list:
+optional string date:
+width: fill
+spacing: 12
+
+--- image-loop: 
+avatar: $obj.avatar
+is-first: $obj.is-first
+$loop$: $people-list as $obj
+
+
+
+--- container: ftd.main
+
+--- naming-loop:
+name: $obj.name
+is-last: $obj.is-last
+is-first: $obj.is-first
+$loop$: $people-list as $obj
+date: $date
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.row  image-loop:
+ftd.image-src avatar:
+boolean is-first:
+width: auto
+
+
+--- ftd.image:
+src: $avatar
+height: 32
+width: 32
+border-radius: 100
+margin-left if not $is-first: -24
+
+
+
+
+
+
+
+
+
+
+-- ftd.column  naming-loop:
+caption name:
+boolean is-last:
+boolean is-first:
+optional string date:
+width: auto
+spacing: 4
+margin-right: 4
+
+
+--- ftd.row:
+width: fill
+
+--- ftd.text: $name
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+
+--- ftd.text: ,
+if: not $is-last
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+
+--- container: ftd.main
+
+--- ftd.row:
+if:  $is-first
+
+--- ftd.text: $date
+if: $date is not null
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

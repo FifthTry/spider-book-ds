@@ -1,0 +1,213 @@
+-- import: fpm
+-- import: fifthtry.github.io/chrome-book-ds as ft
+
+
+
+
+-- record show-toc:
+caption title:
+optional string url:
+body body:
+
+-- show-toc list toc-list:
+
+-- toc-list: Overview
+url: /docs/onepage/overview
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+
+-- toc-list: Page
+url: /
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+
+-- fpm.sitemap-data sitemap:
+$processor$: sitemap
+
+-- ft.page:
+
+
+-- dev_page: cDoc
+logo: $assets.files.static.doc-framework.png
+
+cdoc is an open source web application that integrates with Github and works 
+like continuous integration.
+ 
+
+-- ftd.column dev_page:
+caption title:
+ftd.image-src logo:
+body body:
+show-toc list toc-list: $toc-list
+boolean show-shrink: false
+
+--- ftd.column:
+id: change-one
+width: 128
+height: 128 
+$on-mouse-enter$: $show-shrink = true
+$on-mouse-leave$: $show-shrink = false
+align: center
+
+--- ftd.row:
+width: fill
+if: not $show-shrink
+id: shrink-container
+
+--- ftd.row:
+background-color: $fpm.color.main.border
+border-radius: 6
+bottom: 0
+anchor: parent
+right: 0
+move-up: 24
+move-left: 12
+z-index: -4
+width: 102
+height: 128 
+
+--- container: shrink-container
+
+--- ftd.row:
+background-color: $fpm.color.main.accent.secondary
+border-radius: 6
+width: 112
+height: 128 
+bottom: 0
+anchor: parent
+right: 0
+move-left: 7
+move-up: 14
+z-index: -3
+
+--- container: shrink-container
+
+--- ftd.row:
+background-color: $fpm.color.main.cta-primary.text
+border-radius: 6
+width: 128
+height: 128 
+z-index: 2
+background-image: $assets.files.static.box-image.png
+
+--- ftd.column: 
+align: center
+width: fill
+
+--- ftd.image:
+src:$logo
+width: 48
+height: 48 
+align: center
+
+--- container: change-one
+
+--- ftd.row:
+if: $show-shrink
+width: fill
+id: show-container
+
+--- ftd.row:
+background-color: $fpm.color.main.border
+border-radius: 6
+bottom: 0
+anchor: parent
+right: 0
+move-up: 8
+move-left: 2
+z-index: -4
+width: 120
+height: 128 
+
+--- container: show-container
+
+--- ftd.row:
+background-color: $fpm.color.main.accent.secondary
+border-radius: 6
+width: 124
+height: 128 
+bottom: 0
+anchor: parent
+right: 0
+move-up: 4
+move-left: 2
+z-index: -3
+
+--- container: show-container
+
+--- ftd.row:
+background-color: $fpm.color.main.cta-primary.text
+border-radius: 6
+width: 128
+height: 128 
+z-index: 2
+background-image: $assets.files.static.box-image.png
+
+--- ftd.column:
+align: center
+width: fill
+
+--- ftd.image:
+src:$logo
+width: 48
+height: 48 
+align: center
+
+--- container: ftd.main
+
+--- ftd.text: $title
+width: fill
+role: $fpm.type.heading-small
+text-align: center
+margin-top: 24
+
+--- ftd.text:
+text: $body
+width: fill
+role: $fpm.type.copy-tight
+text-align: center
+margin-top: 16
+max-width: 560
+--- ftd.column:
+margin-top:56
+
+--- toc-loop:
+$loop$: $toc-list as $obj
+toc-list: $obj
+
+-- ftd.row toc-loop:
+show-toc toc-list:
+id: toc-instance
+border-top: 1
+border-color: $fpm.color.main.text
+padding-vertical: 16
+width: fill
+
+--- ftd.row:
+width: fill
+id: first-row
+
+--- ftd.text:
+if: $toc-list.url is not null
+link: $toc-list.url
+text: $toc-list.title
+role: $fpm.type.copy-large
+color: $fpm.color.main.cta-primary.base
+
+
+--- ftd.text:
+if: $toc-list.url is null
+text: $toc-list.title
+role: $fpm.type.copy-large
+color: $fpm.color.main.cta-primary.base
+padding-left: 10
+
+
+--- container: ftd.main
+
+--- ftd.text:
+text: $toc-list.body
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+padding-left: 10
+
