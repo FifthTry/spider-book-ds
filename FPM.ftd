@@ -21,7 +21,6 @@ nav-title: Documentation
 ## sub-section: /docs/onepage/one-page
 
 - overview: /docs/onepage/overview
-  nav_title: hjkl
 - page-one: 
   - overview: /docs/onepage/overview
 
