@@ -20,7 +20,7 @@ body body:
 -- project list project-list:
 
 -- project-list: cDoc
-image: $assets.files.static.doc-framework.PNG
+image: $assets.files.static.doc-framework.png
 url: docs/onepage/one-page
 
 cdoc is an open source web application that integrates with Github and works like continuous integration.
