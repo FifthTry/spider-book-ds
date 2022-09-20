@@ -18,8 +18,8 @@ if: $ftd.device == mobile
 -- optional string site-name:  CHROME DEVELOPER
 
 -- optional ftd.image-src site-logo:
-dark: $assets.files.static.static.fifthtry-logo.svg.dark
-light: $assets.files.static.static.fifthtry-logo.svg..light
+dark: $assets.files.static.fifthtry-logo.svg.dark
+light: $assets.files.static.fifthtry-logo.svg..light
 
 -- string site-url: NA
 
