@@ -1,9 +1,30 @@
 -- import: fpm
 
--- fpm.package: <user_name>.github.io/<repo_name>
-zip: github.com/<user_name>/<repo_name>/archive/refs/heads/main.zip
-base: https://raw.githubusercontent.com/<user_name>/<repo_name>/main
+-- fpm.package: fifthtry.github.io/chrome-book-ds
+zip: github.com/fifthtry/chrome-book-ds/archive/refs/heads/main.zip
+download-base-url: https://raw.githubusercontent.com/fifthtry/chrome-book-ds/main
 
--- fpm.dependency: fifthtry.github.io/doc-site as ds
+-- fpm.dependency: fifthtry.github.io/chrome-book-cs as chrome-book-cs
+-- fpm.dependency: fifthtry.github.io/language-switcher as ls
 
--- fpm.auto-import: ds
+-- fpm.auto-import: chrome-book-cs
+
+-- fpm.auto-import: fifthtry.github.io/chrome-book-ds/assets
+
+-- fpm.sitemap:
+
+# Home: /page
+
+# Docs: /docs/doc
+nav-title: Documentation
+
+## sub-section: /docs/onepage/one-page
+
+- overview: /docs/onepage/overview
+- page-one: 
+  - overview: /docs/onepage/overview
+
+
+# blog: /blog/blog-posts/
+## participate: /blog/participate/
+
