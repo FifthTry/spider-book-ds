@@ -1,0 +1,132 @@
+-- import: fpm
+-- import: fifthtry.github.io/chrome-book-ds as ft
+
+-- ft.page:
+
+
+
+
+-- docs-info-card: hjk
+
+
+-- ftd.column docs-info-card:
+caption title:
+ftd.image-src image: $assets.files.chrome.png
+boolean show-shrink: false
+string width: 88
+string height: 88
+width: fill
+
+
+--- ftd.column:
+id: change-one
+width: $width
+height: $height
+$on-mouse-enter$: $show-shrink = true
+$on-mouse-leave$: $show-shrink = false
+align: center
+
+--- ftd.row:
+width: fill
+if: not $show-shrink
+id: shrink-container
+
+--- ftd.row:
+background-color: $fpm.color.main.border
+border-radius: 6
+bottom: 0
+anchor: parent
+right: 0
+move-up: 16
+move-left: 12
+z-index: -4
+width: 62
+height: $height
+
+--- container: shrink-container
+
+--- ftd.row:
+background-color: $fpm.color.main.accent.secondary
+border-radius: 6
+width: 76
+height: 88 
+bottom: 0
+anchor: parent
+right: 0
+move-left: 7
+move-up: 9
+z-index: -3
+
+--- container: shrink-container
+
+--- ftd.row:
+background-color: $fpm.color.main.cta-primary.text
+border-radius: 6
+width: 88
+height: 88 
+z-index: 2
+background-image: $assets.files.box-image.png
+
+--- ftd.column: 
+align: center
+width: fill
+
+--- ftd.image:
+src: $image
+width: 24
+height: 24 
+align: center
+
+--- container: change-one
+
+--- ftd.row:
+if: $show-shrink
+width: fill
+id: show-container
+
+--- ftd.row:
+background-color: $fpm.color.main.border
+border-radius: 6
+bottom: 0
+anchor: parent
+right: 0
+move-up: 8
+move-left: 2
+z-index: -4
+width: 80
+height: 88
+
+--- container: show-container
+
+--- ftd.row:
+background-color: $fpm.color.main.accent.secondary
+border-radius: 6
+width: 84
+height: 88 
+bottom: 0
+anchor: parent
+right: 0
+move-up: 4
+move-left: 2
+z-index: -3
+
+--- container: show-container
+
+--- ftd.row:
+background-color: $fpm.color.main.cta-primary.text
+border-radius: 6
+width: 88
+height: 88 
+z-index: 2
+background-image: $assets.files.box-image.png
+
+--- ftd.column:
+align: center
+width: fill
+
+--- ftd.image:
+src: $image
+width: 24
+height: 24
+align: center
+

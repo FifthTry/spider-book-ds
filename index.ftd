@@ -1,1 +1,728 @@
--- ds.page: hello
+-- import: fpm
+-- import: fifthtry.github.io/chrome-book-ds as ft
+-- import: fifthtry.github.io/language-switcher as ls
+-- import: fifthtry.github.io/chrome-book-ds/header as h
+
+-- optional string copyright: © 2022 FifthTry. All rights reserved
+
+-- boolean sidebar-open: false
+
+-- fpm.sitemap-data sitemap:
+$processor$: sitemap
+
+-- boolean is-mobile: false
+
+-- is-mobile: true
+if: $ftd.device == mobile
+
+
+-- optional string site-name:  FifthTry Developer
+
+-- optional ftd.image-src site-logo:
+dark: $assets.files.static.fifthtry-logo.svg.dark
+light: $assets.files.static.fifthtry-logo.svg.light
+
+-- string site-url: NA
+
+
+
+-- page: 
+
+
+-- fpm.toc-item list languages:
+$processor$: toc
+
+- English: /
+- Hindi: /hi
+- Spanish: /es
+- German: /de
+
+
+-- fpm.toc-item list sitelinks-3-column:
+$processor$: toc
+
+- footer-one:
+  - level: /
+  - level: /
+  - level: /
+  - level: /
+  - level: /
+- footer-two:
+  - level: /
+  - level: /
+  - level: /
+  - level: /
+  - level: /
+- footer-three:
+  - level: /
+  - level: /
+  - level: /
+  - level: /
+  - level: /
+
+
+-- fpm.toc-item list legal-links:
+$processor$: toc
+
+- privacy: /
+- legal: /
+- level: /
+- level: /
+- level: /
+
+-- record social:
+ftd.image-src logo:
+string url:
+
+-- social list social-list:
+
+
+-- social-list:
+logo: $assets.files.static.twitter.png
+url: https://twitter.com/FifthTryHQ
+
+
+-- social-list:
+logo: $assets.files.static.discord.png
+url: https://discord.gg/nnBjPtrN
+
+-- social-list:
+logo: $assets.files.static.linkedin.png
+url: /
+
+
+-- ftd.column page:
+fpm.toc-item list sections: $sitemap.sections
+fpm.toc-item list sub-sections: $sitemap.subsections
+fpm.toc-item list toc: $sitemap.toc
+optional fpm.toc-item current-section: $sitemap.current-section
+optional fpm.toc-item current-subsection: $sitemap.current-subsection
+optional fpm.toc-item current-page: $sitemap.current-page
+social list social-list: $social-list
+fpm.toc-item list sitelinks-3-column: $sitelinks-3-column
+fpm.toc-item list legal-links: $legal-links
+string copy-right: $copyright
+string width:  1008
+width: fill
+boolean widthfill: false
+open: true
+append-at: main-container
+
+--- h.header:
+sections: $sections
+site-name: $site-name
+site-url: $site-url
+site-logo: $site-logo
+current-section: $current-section
+current-subsection: $current-subsection
+current-page: $current-page
+toc: $toc
+
+--- container: ftd.main
+
+--- ftd.row:
+id: toc-page
+width: fill
+
+--- ftd.column:
+if: not $is-mobile
+padding-horizontal: 12
+padding-top: 32
+border-right: 1
+min-height: calc ( 100vh - 2px)
+height: fill
+border-color: $fpm.color.main.text
+spacing: 32
+
+
+--- header-link: $obj.title
+$loop$: $sections as $obj
+is-active: $obj.is-active
+link: $obj.url
+border: $fpm.color.main.background.step-1
+border-active: $fpm.color.main.text
+text: $fpm.color.main.text-strong
+text-active: $fpm.color.main.cta-primary.base
+
+--- container: toc-page
+
+
+--- ftd.column:
+width: fill
+id: main-column
+
+--- ftd.row:
+width: fill
+id: selection-container
+padding-vertical: 24
+padding-horizontal:24
+
+--- ftd.row:
+if: $current-section is not null
+
+--- ftd.text: $current-section.title
+if: $current-section.title is not null
+role: $fpm.type.copy-tight
+color: $fpm.color.main.text-strong
+link: $current-section.url
+margin-right: 8
+
+--- ftd.row:
+if: $current-subsection.title is not null
+
+--- ftd.image:
+src: $assets.files.static.right-arrow.svg
+width:  auto
+height: 16
+align: center
+padding-top: 4
+margin-right: 8
+
+--- container: selection-container
+
+--- ftd.text: $current-subsection.title
+if: $current-subsection.title is not null
+role: $fpm.type.copy-tight
+color: $fpm.color.main.text-strong
+link: $current-subsection.url
+white-space: nowrap
+margin-right: 8
+
+--- ftd.row:
+if: $current-page.title is not null
+
+--- ftd.image:
+src: $assets.files.static.right-arrow.svg
+width:  auto
+height: 16
+padding-top: 4
+margin-right: 8
+
+--- container: selection-container
+
+--- ftd.text:$current-page.title 
+if: $current-page.title is not null
+role: $fpm.type.copy-tight
+color: $fpm.color.main.text-strong
+link: $current-page.url 
+white-space: nowrap
+margin-right: 8
+
+--- container: main-column
+
+--- ftd.row:
+max-width: $width
+max-width if $widthfill: fill
+id: main-row
+align if not $widthfill: center
+
+
+--- ftd.row:
+if: $current-page is not null
+width: percent 50
+
+--- ftd.row:
+if: not $is-mobile
+width: fill
+
+--- render-toc:
+if: $toc is not empty
+toc-obj: $toc
+
+
+--- container: main-row
+
+--- ftd.column:
+align: center
+
+--- ftd.column:
+max-width: $width
+max-width if $widthfill: fill
+width: fill
+align: center
+min-height : calc 100vh - 512px
+padding-horizontal if not $widthfill: 24
+padding-vertical: 24
+padding-horizontal: 24
+
+--- ftd.column:
+align: center
+width: fill
+
+
+--- ftd.row:
+wrap: true
+id: main-container
+spacing: space-between
+
+--- container: main-column
+
+--- ftd.column:
+width: fill
+margin-top: 72
+padding-horizontal if not $is-mobile: 42
+id: footer-box
+
+
+--- social-card:
+social-list: $social-list
+
+--- ftd.row:
+if: not $is-mobile
+width: fill
+border-bottom: 1
+border-color: $fpm.color.main.text
+padding-top: 42
+padding-bottom: 30
+
+--- footer-loop:
+title: $obj.title
+url: $obj.url
+children: $obj.children
+$loop$: $sitelinks-3-column as $obj
+
+--- container: footer-box
+
+--- ftd.column:
+if: $is-mobile
+width: fill
+border-bottom: 1
+border-color: $fpm.color.main.text
+padding-top: 42
+padding-bottom: 30
+padding-horizontal if $is-mobile: 24
+
+--- footer-loop:
+title: $obj.title
+url: $obj.url
+children: $obj.children
+$loop$: $sitelinks-3-column as $obj
+
+
+--- container: main-column
+
+--- footer:
+site-logo: $site-logo
+site-url: $site-url
+copyright: $copyright
+legal-links: $legal-links
+
+
+
+
+
+-- ftd.column footer:
+optional ftd.image-src site-logo: $site-logo
+string site-url: $site-url
+optional string copyright: $copyright
+fpm.toc-item list legal-links:
+width: fill
+padding-horizontal: 42
+padding-horizontal if $is-mobile: 24
+padding-vertical: 42
+spacing: space-between
+
+--- ftd.column:
+if: $is-mobile
+id: footer-mobile-container
+
+--- ftd.image:
+src: $site-logo
+link: $site-url
+width: 74
+height: auto
+
+--- ftd.row:
+width:fill
+wrap: true
+margin-top: 16
+
+--- footer-link:
+title: $obj.title
+$loop$: $legal-links as $obj
+url: $obj.url
+
+--- container: footer-mobile-container
+
+--- ls.switcher:
+languages: $languages
+current: English
+switcher-text: choose languages
+horizontal-position: -30
+
+--- container: ftd.main
+
+--- ftd.row:
+if: not $is-mobile
+width: fill
+id: show-container
+
+--- ftd.row:
+width: fill
+
+--- ftd.image:
+src: $site-logo
+link: $site-url
+width: 74
+height: auto
+
+--- footer-link:
+title: $obj.title
+$loop$: $legal-links as $obj
+url: $obj.url
+
+
+
+--- container: show-container
+
+--- ftd.row:
+align: right
+
+--- ls.switcher:
+languages: $languages
+current: English
+switcher-text: choose languages
+horizontal-position: -30
+
+--- container: ftd.main
+
+--- ftd.column:
+margin-top: 32
+
+--- ftd.text:
+text: $copyright
+text-align: right
+role: $fpm.type.copy-tight
+color: $fpm.color.main.text-strong
+white-space: nowrap
+
+
+
+
+-- ftd.row footer-link:
+optional string url:
+caption title:
+margin-top:8
+margin-bottom:8
+margin-right:16
+
+--- ftd.text:
+if: $url is null
+text: $title
+min-width: fit-content
+role: $fpm.type.copy-tight
+color: $fpm.color.main.text-strong
+
+
+--- ftd.text:
+if: $url is not null
+link: $url
+text: $title
+min-width: fit-content
+role: $fpm.type.copy-tight
+color: $fpm.color.main.text-strong
+
+
+
+
+
+-- ftd.column footer-loop:
+caption title:
+optional string url:
+fpm.toc-item list children:
+width: fill
+
+
+--- ftd.text:  $title
+if: $url is not null
+link: $url
+role: $fpm.type.copy-tight
+color: $fpm.color.main.text
+style: semi-bold
+
+--- ftd.text: $title
+if: $url is  null
+role: $fpm.type.copy-tight
+color: $fpm.color.main.text
+style: semi-bold
+
+--- ftd.column:
+if: $children is not empty
+margin-top: 12
+
+--- footer-children:
+title: $obj.title
+url: $obj.url
+children: $obj.children
+$loop$: $children as $obj
+
+
+-- ftd.column footer-children:
+caption title:
+optional string url:
+fpm.toc-item list children:
+padding-bottom : 12
+
+
+--- ftd.text:  $title
+if: $url is not null
+link: $url
+role: $fpm.type.copy-tight
+color: $fpm.color.main.text
+style: semi-bold
+
+--- ftd.text: $title
+if: $url is  null
+role: $fpm.type.copy-tight
+color: $fpm.color.main.text
+style: semi-bold
+
+--- ftd.column:
+width: fill
+if: $children is not empty
+
+--- footer-children:
+title: $obj.title
+url: $obj.url
+children: $obj.children
+$loop$: $children as $obj
+
+
+
+
+-- ftd.row social-card:
+caption title: FOLLOW US
+social list social-list:
+width:fill
+border-bottom: 1
+border-color: $fpm.color.main.text
+padding-vertical: 42
+padding-horizontal if $is-mobile: 24
+
+--- ftd.text: $title
+role: $fpm.type.fine-print
+color: $fpm.color.main.text-strong
+white-space: nowrap
+margin-right: 16
+style: semi-bold
+
+--- social-loop:
+logo: $obj.logo
+url: $obj.url
+$loop$: $social-list as $obj
+
+
+
+
+-- ftd.row social-loop:
+ftd.image-src logo:
+string url:
+margin-right: 16
+
+--- ftd.image:
+src: $logo
+width: 16
+height: auto
+link: $url
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.column render-toc:
+fpm.toc-item list toc-obj:
+width: fill
+
+--- toc-loop:
+$loop$: $toc-obj as $obj
+toc: $obj
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.column toc-loop:
+fpm.toc-item toc:
+id: toc-instance
+boolean open: false
+width: fill
+
+--- ftd.row:
+width: fill
+id: first-row
+spacing: 16
+padding-vertical:8
+padding-horizontal:8
+background-color if $MOUSE-IN: $fpm.color.main.accent.tertiary
+border-right-radius: 25
+background-color if $toc.is-active: $fpm.color.main.cta-secondary.border
+
+--- ftd.row:
+id: jjjj
+
+--- ftd.row:
+if: not $open
+width: 24
+
+
+--- ftd.image:
+if: $toc.children is not empty
+src: $assets.files.static.down.svg
+$on-click$: $open= true
+
+
+--- container: jjjj
+
+--- ftd.row:
+if: $open
+width: 24
+
+--- ftd.image:
+if: $toc.children is not empty
+src: $assets.files.static.right.png
+$on-click$: $open= false
+width: 12
+padding-top: 8
+margin-left: 6
+
+
+
+--- container: first-row
+
+--- ftd.text:
+if: $toc.url is not null
+link: $toc.url
+text: $toc.title
+role: $fpm.type.copy-relaxed
+min-width: fit-content
+color: $fpm.color.main.text
+color if $toc.is-active: $fpm.color.main.cta-primary.base
+
+--- ftd.text:
+if: $toc.url is null
+text: $toc.title
+role: $fpm.type.copy-relaxed
+min-width: fit-content
+color: $fpm.color.main.text
+color if $toc.is-active: $fpm.color.main.cta-primary.base
+padding-left: 10
+
+--- container: ftd.main
+
+--- ftd.column:
+width: fill
+if: $open
+
+
+
+--- childrens:
+$loop$: $toc.children as $obj
+toc: $obj
+
+
+
+
+
+
+
+
+
+
+-- ftd.column childrens:
+fpm.toc-item toc:
+padding-vertical:8
+padding-left: 48
+background-color if $MOUSE-IN: $fpm.color.main.accent.tertiary
+border-right-radius: 25
+background-color if $toc.is-active: $fpm.color.main.cta-secondary.border
+width: fill
+
+--- ftd.text: 
+link: $toc.url
+text: $toc.title
+role: $fpm.type.copy-relaxed
+min-width: fit-content
+color: $fpm.color.main.text
+color if $toc.is-active: $fpm.color.main.cta-primary.base
+
+--- ftd.column:
+if: $toc.children is not empty
+
+--- childrens:
+$loop$: $toc.children as $obj
+toc: $obj
+
+
+
+
+
+
+
+
+
+
+-- ftd.row header-link: 
+caption title:
+boolean is-active:
+optional string link:
+ftd.color border: $fpm.color.main.background.base
+ftd.color border-active: $fpm.color.main.text
+ftd.color text: $fpm.color.main.text
+ftd.color text-active: $fpm.color.main.cta-primary.base
+
+--- ftd.text: $title
+if: $link is null 
+role:$fpm.type.copy-tight
+color: $text
+color if $is-active: $text-active
+align: center
+white-space: nowrap
+
+--- ftd.text: $title
+if: $link is not null 
+role:$fpm.type.copy-tight
+color: $text
+color if $is-active: $text-active
+link: $link
+align: center
+white-space: nowrap
+
+

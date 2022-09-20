@@ -1,0 +1,412 @@
+-- import: fpm
+-- import: fifthtry.github.io/chrome-book-ds as ft
+
+
+
+-- record people:
+ftd.image-src avatar:
+caption name:
+string profile:
+boolean is-first: false
+boolean is-last: false
+
+-- people list people-list:
+
+-- people-list:
+name: lorem
+avatar: $assets.files.static.avatar.png
+profile: Lorem ipsum dolor sit amet consectetur
+is-first: true
+
+-- people-list:
+name: lorem
+profile: Lorem ipsum dolor sit amet consectetur
+avatar: $assets.files.static.avatar.png
+
+
+-- people-list:
+name: lorem
+profile: Lorem ipsum dolor sit amet consectetur
+avatar: $assets.files.static.avatar.png
+
+
+-- people-list:
+name: lorem
+profile: Lorem ipsum dolor sit amet consectetur
+avatar: $assets.files.static.avatar.png
+is-last: true
+
+
+-- record hashtag:
+caption title:
+string url:
+
+-- hashtag list hashtag-list:
+
+-- hashtag-list: lorema
+url: /
+
+-- hashtag-list: lorema
+url: /
+
+-- hashtag-list: lorema
+url: /
+
+-- hashtag-list: lorema
+url: /
+
+
+
+-- ft.page:
+width: 1240
+
+-- participate: LOREM LIPSUM
+hashtag-list: $hashtag-list
+date: 31 aug 2022
+people-list: $people-list
+url: blog/participate
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+incididunt ut labore et dolore magna aliqua
+
+
+
+
+-- participate-with-image: LOREM LIPSUM
+image: $assets.files.static.hero-bg.jpg
+hashtag-list: $hashtag-list
+date: 31 aug 2022
+people-list: $people-list
+
+-- participate: LOREM LIPSUM
+hashtag-list: $hashtag-list
+date: 31 aug 2022
+people-list: $people-list
+url: blog/participate
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+incididunt ut labore et dolore magna aliqua
+
+-- participate: LOREM LIPSUM
+hashtag-list: $hashtag-list
+date: 31 aug 2022
+people-list: $people-list
+url: blog/participate
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+incididunt ut labore et dolore magna aliqua
+
+-- participate: LOREM LIPSUM
+hashtag-list: $hashtag-list
+date: 31 aug 2022
+people-list: $people-list
+url: blog/participate
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+incididunt ut labore et dolore magna aliqua
+
+-- participate: LOREM LIPSUM
+hashtag-list: $hashtag-list
+date: 31 aug 2022
+people-list: $people-list
+url: blog/participate
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+incididunt ut labore et dolore magna aliqua
+
+-- ftd.column participate:
+caption title:
+body body:
+hashtag list hashtag-list::
+string date:
+people list people-list:
+padding-vertical: 24
+padding-horizontal: 24
+string url:
+border-color if $MOUSE-IN: $fpm.color.main.text
+border-color: $fpm.color.main.background.base
+border-width: 1
+border-radius: 20
+max-width: 378
+margin-bottom: 42
+spacing: 16
+
+
+--- ftd.text: $title
+role: $fpm.type.heading-medium
+color: $fpm.color.main.text
+link: $url
+
+--- ftd.text: 
+text: $body
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+
+--- ftd.row:
+width: fill
+wrap: true
+
+--- hashtag-list-loop:
+url: $obj.url
+title: $obj.title
+$loop$: $hashtag-list as $obj
+
+--- container: ftd.main
+
+--- poeple-loop:
+people-list: $people-list
+
+
+
+
+
+-- ftd.row poeple-loop:
+people list people-list:
+width: fill
+spacing: 12
+
+--- image-loop: 
+avatar: $obj.avatar
+is-first: $obj.is-first
+$loop$: $people-list as $obj
+
+
+
+--- container: ftd.main
+
+--- naming-loop:
+name: $obj.name
+is-last: $obj.is-last
+$loop$: $people-list as $obj
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.row  image-loop:
+ftd.image-src avatar:
+boolean is-first:
+width: auto
+
+
+--- ftd.image:
+src: $avatar
+height: 32
+width: 32
+border-radius: 100
+margin-left if not $is-first: -24
+
+
+
+
+
+
+
+
+
+
+-- ftd.column  naming-loop:
+caption name:
+boolean is-last:
+width: auto
+spacing: 4
+margin-right: 4
+
+
+--- ftd.row:
+width: fill
+
+--- ftd.text: $name
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+
+--- ftd.text: ,
+if: not $is-last
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.row hashtag-list-loop:
+caption title:
+string url:
+width: auto
+margin-right: 32
+border-color: $fpm.color.main.text
+border-width: 1
+border-radius: 20
+padding-vertical: 6
+padding-horizontal: 12
+margin-bottom: 16
+
+
+
+--- ftd.text: \#
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+
+--- ftd.text: $title
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+link: $url
+
+
+
+
+-- ftd.column participate-with-image:
+ftd.image-src image:
+caption title:
+hashtag list hashtag-list:
+string date:
+max-width: 378
+people list people-list:
+padding-vertical: 24
+padding-horizontal: 24
+border-color if $MOUSE-IN: $fpm.color.main.text
+border-color: $fpm.color.main.background.base
+border-width: 1
+border-radius: 20
+margin-bottom: 42
+spacing: 16
+
+--- ftd.image:
+src: $image
+width: fill
+height: auto
+
+--- ftd.text: $title
+role: $fpm.type.heading-medium
+color: $fpm.color.main.text
+
+--- ftd.row:
+width: fill
+wrap: true
+
+--- hashtag-list-loop:
+url: $obj.url
+title: $obj.title
+$loop$: $hashtag-list as $obj
+
+--- container: ftd.main
+
+--- poeple-loop:
+people-list: $people-list
+
+
+
+
+
+
+
+-- ftd.column participate-with-image-full-page:
+ftd.image-src image:
+caption title:
+hashtag list hashtag:
+string date:
+people list people-list:
+body body:
+string day:
+
+
+--- ftd.image:
+src: $image
+width: fill
+height: auto
+
+
+--- ftd.text: $title
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+
+
+--- ftd.row:
+width: fill
+
+--- ftd.text: PUBLISHED BY 
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+
+--- ftd.text: $day
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+
+--- ftd.text: $date
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+
+--- container: ftd.main
+
+
+--- hashtag-list-loop:
+url: $obj.url
+title: $obj.title
+$loop$: $hashtag-list as $obj
+
+
+--- people-loop-full:
+avatar: $obj.avatar
+name: $obj.name
+profile: $obj.profile
+$loop$: $people-list as $obj
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.row people-loop-full:
+ftd.image-src avatar:
+caption name:
+string profile:
+width: fill
+
+
+--- ftd.column:
+width: fill
+
+--- ftd.image:
+src: $avatar
+width: 16
+height: auto
+
+
+--- container: ftd.main
+
+--- ftd.column:
+width: fill
+
+--- ftd.text: $name
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+
+--- ftd.text: $profile
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+

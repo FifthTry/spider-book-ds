@@ -1,0 +1,399 @@
+-- import: fpm
+-- import: fifthtry.github.io/chrome-book-ds as ft
+
+-- ft.page:
+widthfill: true
+
+-- project-card: TOOLS & LIBRARIES
+project-list: $project-list
+
+
+-- project-card: TOOLS & LIBRARIES
+project-list: $projects-list
+
+-- record project:
+caption title:
+string url:
+ftd.image-src image:
+body body:
+
+-- project list project-list:
+
+-- project-list: cDoc
+image: $assets.files.static.doc-framework.PNG
+url: docs/onepage/one-page
+
+cdoc is an open source web application that integrates with Github and works like continuous integration.
+
+-- project-list: FPM
+image: $assets.files.static.fpm.png
+url: docs/onepage/one-page
+
+FTD gives you a lot of power over your presentation, and yet it is quite easy to learn.
+
+-- project-list: FTD
+image: $assets.files.static.ftd.png
+url: docs/onepage/one-page
+
+fpm is ftd package manager, defines a package format for packaging ftd files.
+
+-- project-list: DF
+image: $assets.files.static.home.png
+url: docs/onepage/one-page
+
+ftd-py: Python Package for Working With FTD/FPM
+
+
+
+-- project list projects-list:
+
+-- projects-list: hj
+image: $assets.files.static.home.png
+url: docs/onepage/one-page
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+
+-- projects-list: abc
+image: $assets.files.static.home.png
+url: docs/onepage/one-page
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+
+-- projects-list: abc
+image: $assets.files.static.home.png
+url: docs/onepage/one-page
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+
+-- projects-list: abc
+image: $assets.files.static.home.png
+url: docs/onepage/one-page
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+
+-- projects-list: abc
+image: $assets.files.static.home.png
+url: docs/onepage/one-page
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+
+
+
+-- ftd.column project-card:
+caption title:
+width: fill
+project list project-list:
+margin-top: 24
+spacing: 32
+
+--- ftd.text: $title
+role:$fpm.type.copy-tight
+color: $fpm.color.main.text
+
+--- ftd.row:
+width: fill
+wrap: true
+
+--- project-info: 
+title: $obj.title
+image: $obj.image
+body: $obj.body
+url: $obj.url
+$loop$: $project-list as $obj
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.column project-info:
+caption title:
+ftd.image-src image:
+body body:
+string url:
+boolean show-shrink: false
+width if not $ft.is-mobile: percent 22
+width: percent 40
+border-radius: 8
+padding-vertical: 48
+padding-horizontal: 16
+background-color if $MOUSE-IN: $fpm.color.main.accent.tertiary
+z-index: 1
+margin-left if not $ft.is-mobile : 32
+margin-left: 24
+link: $url
+color: $fpm.color.main.text
+
+--- ftd.column:
+width: fill
+if: not $ft.is-mobile
+id: desktop-container
+
+--- ftd.column:
+id: change-one
+width: 128
+height: 128 
+$on-mouse-enter$: $show-shrink = true
+$on-mouse-leave$: $show-shrink = false
+align: center
+
+--- ftd.row:
+width: fill
+if: not $show-shrink
+id: shrink-container
+
+--- ftd.row:
+background-color: $fpm.color.main.border
+border-radius: 6
+bottom: 0
+anchor: parent
+right: 0
+move-up: 24
+move-left: 12
+z-index: -4
+width: 102
+height: 128 
+
+--- container: shrink-container
+
+--- ftd.row:
+background-color: $fpm.color.main.accent.secondary
+border-radius: 6
+width: 112
+height: 128 
+bottom: 0
+anchor: parent
+right: 0
+move-left: 7
+move-up: 14
+z-index: -3
+
+--- container: shrink-container
+
+--- ftd.row:
+background-color: $fpm.color.main.cta-primary.text
+border-radius: 6
+width: 128
+height: 128 
+z-index: 2
+background-image: $assets.files.static.box-image.png
+
+--- ftd.column: 
+align: center
+width: fill
+
+--- ftd.image:
+src: $image
+width: 48
+height: 48 
+align: center
+
+--- container: change-one
+
+--- ftd.row:
+if: $show-shrink
+width: fill
+id: show-container
+
+--- ftd.row:
+background-color: $fpm.color.main.border
+border-radius: 6
+bottom: 0
+anchor: parent
+right: 0
+move-up: 8
+move-left: 2
+z-index: -4
+width: 120
+height: 128 
+
+--- container: show-container
+
+--- ftd.row:
+background-color: $fpm.color.main.accent.secondary
+border-radius: 6
+width: 124
+height: 128 
+bottom: 0
+anchor: parent
+right: 0
+move-up: 4
+move-left: 2
+z-index: -3
+
+--- container: show-container
+
+--- ftd.row:
+background-color: $fpm.color.main.cta-primary.text
+border-radius: 6
+width: 128
+height: 128 
+z-index: 2
+background-image: $assets.files.static.box-image.png
+
+--- ftd.column:
+align: center
+width: fill
+
+--- ftd.image:
+src: $image
+width: 48
+height: 48 
+align: center
+
+--- container: desktop-container
+
+--- ftd.text: $title
+width: fill
+role: $fpm.type.heading-small
+text-align: center
+margin-top: 24
+
+--- ftd.text:
+text: $body
+width: fill
+role: $fpm.type.fine-print
+text-align: center
+margin-top: 16
+
+
+--- container: ftd.main
+
+--- ftd.column:
+if: $ft.is-mobile
+id: mobile-container
+
+--- ftd.column:
+id: change-one
+width: 88
+height: 88 
+$on-mouse-enter$: $show-shrink = true
+$on-mouse-leave$: $show-shrink = false
+align: center
+
+--- ftd.row:
+width: fill
+if: not $show-shrink
+id: shrink-container
+
+--- ftd.row:
+background-color: $fpm.color.main.border
+border-radius: 6
+bottom: 0
+anchor: parent
+right: 0
+move-up: 16
+move-left: 12
+z-index: -4
+width: 62
+height: 88
+
+--- container: shrink-container
+
+--- ftd.row:
+background-color: $fpm.color.main.accent.secondary
+border-radius: 6
+width: 76
+height: 88 
+bottom: 0
+anchor: parent
+right: 0
+move-left: 7
+move-up: 9
+z-index: -3
+
+--- container: shrink-container
+
+--- ftd.row:
+background-color: $fpm.color.main.cta-primary.text
+border-radius: 6
+width: 88
+height: 88 
+z-index: 2
+background-image: $assets.files.static.box-image.png
+
+--- ftd.column: 
+align: center
+width: fill
+
+--- ftd.image:
+src: $image
+width: 24
+height: 24 
+align: center
+
+--- container: change-one
+
+--- ftd.row:
+if: $show-shrink
+width: fill
+id: show-container
+
+--- ftd.row:
+background-color: $fpm.color.main.border
+border-radius: 6
+bottom: 0
+anchor: parent
+right: 0
+move-up: 8
+move-left: 2
+z-index: -4
+width: 80
+height: 88
+
+--- container: show-container
+
+--- ftd.row:
+background-color: $fpm.color.main.accent.secondary
+border-radius: 6
+width: 84
+height: 88 
+bottom: 0
+anchor: parent
+right: 0
+move-up: 4
+move-left: 2
+z-index: -3
+
+--- container: show-container
+
+--- ftd.row:
+background-color: $fpm.color.main.cta-primary.text
+border-radius: 6
+width: 88
+height: 88 
+z-index: 2
+background-image: $assets.files.static.box-image.png
+
+--- ftd.column:
+align: center
+width: fill
+
+--- ftd.image:
+src: $image
+width: 24
+height: 24
+align: center
+
+--- container: mobile-container
+
+--- ftd.text: $title
+width: fill
+role: $fpm.type.fine-print
+text-align: center
+margin-top: 12
