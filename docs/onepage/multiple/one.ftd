@@ -2,22 +2,10 @@
 -- import: fifthtry.github.io/chrome-book-ds as ft
 
 
--- ft.page:
+-- ft.page: 
 widthfill: true
 
 
-
--- overview: cDoc
-published-day: tuesday
-published-date: 10 June
-
-cdoc is an open source web application that integrates with Github and works 
-like continuous integration.Lorem ipsum dolor sit amet, an ius porro denique 
-eleifend, ne natum dolore interpretaris has. Sit tantas vocibus contentiones te,
-est accusata definitiones ad. Ne rebum facilis phaedrum quo. Doctus malorum an nam.
-
--- ft.youtube:
-v: ZoCGwt_nLbk
 
 -- ft.image:
 src: $assets.files.images.dark-mode.new-repo.png
@@ -45,40 +33,5 @@ Lorem ipsum dolor sit amet, an ius porro denique eleifend, ne natum dolore
 interpretaris has. Sit tantas vocibus contentiones te, est accusata definitiones 
 ad. Ne rebum facilis phaedrum quo. Doctus malorum an nam.
 
--- ftd.column overview:
-caption title:
-string published-day:
-string published-date:
-optional body body:
-width: fill
-color: $fpm.color.main.text
-margin-bottom: 24
-spacing: 16
-
---- ftd.text: $title
-role: $fpm.type.heading-hero
-
---- ftd.row:
-width: fill
-spacing: 4
-
---- ftd.text: Published on 
-role: $fpm.type.copy-tight
-
---- ftd.text: $published-day
-role: $fpm.type.copy-tight
-
---- ftd.text: ,
-role: $fpm.type.copy-tight
-
---- ftd.text: $published-date
-role: $fpm.type.copy-tight
-
---- container: ftd.main
-
-
---- ftd.text: 
-text: $body
-role: $fpm.type.copy-relaxed
 
 

@@ -18,11 +18,12 @@ if: $ftd.device == mobile
 
 -- optional string site-name:  FifthTry Developer
 
--- optional ftd.image-src site-logo:
+-- ftd.image-src site-logo:
 dark: $assets.files.static.fifthtry-logo.svg.dark
 light: $assets.files.static.fifthtry-logo.svg.light
 
--- string site-url: NA
+
+-- string site-url: /
 
 
 
@@ -220,6 +221,7 @@ align if not $widthfill: center
 --- ftd.row:
 if: $current-page is not null
 width: percent 50
+width if $widthfill: percent 100
 
 --- ftd.row:
 if: not $is-mobile
@@ -302,8 +304,6 @@ $loop$: $sitelinks-3-column as $obj
 --- container: main-column
 
 --- footer:
-site-logo: $site-logo
-site-url: $site-url
 copyright: $copyright
 legal-links: $legal-links
 
@@ -312,8 +312,6 @@ legal-links: $legal-links
 
 
 -- ftd.column footer:
-optional ftd.image-src site-logo: $site-logo
-string site-url: $site-url
 optional string copyright: $copyright
 fpm.toc-item list legal-links:
 width: fill
@@ -344,6 +342,7 @@ url: $obj.url
 
 --- container: footer-mobile-container
 
+
 --- ls.switcher:
 languages: $languages
 current: English
@@ -365,6 +364,7 @@ src: $site-logo
 link: $site-url
 width: 74
 height: auto
+margin-right: 32
 
 --- footer-link:
 title: $obj.title
@@ -377,6 +377,7 @@ url: $obj.url
 
 --- ftd.row:
 align: right
+margin-top:4
 
 --- ls.switcher:
 languages: $languages
@@ -402,7 +403,7 @@ white-space: nowrap
 -- ftd.row footer-link:
 optional string url:
 caption title:
-margin-top:8
+margin-top:4
 margin-bottom:8
 margin-right:16
 
@@ -504,6 +505,7 @@ role: $fpm.type.fine-print
 color: $fpm.color.main.text-strong
 white-space: nowrap
 margin-right: 16
+padding-top: 8
 style: semi-bold
 
 --- social-loop:
@@ -521,7 +523,7 @@ margin-right: 16
 
 --- ftd.image:
 src: $logo
-width: 16
+width: 24
 height: auto
 link: $url
 
@@ -726,3 +728,256 @@ align: center
 white-space: nowrap
 
 
+
+
+
+
+-- ftd.column image:
+optional caption caption:
+optional body body:
+optional string link:
+optional string alignment: center
+optional string width:
+optional string height:
+ftd.image-src src:
+width if $width is not null: fill
+height: fill
+align if $width is null: center
+
+--- ftd.image:
+src: $src
+width: $width
+height: $height
+align: $alignment
+
+--- ftd.text:
+if: $caption is not null
+text: $caption
+color: $fpm.color.main.text
+align: center
+width if $width is not null: $width
+width if $width is null: fill
+role: $fpm.type.label-big
+border-bottom-radius: 5
+background-color: $fpm.color.main.background.step-1
+padding-vertical: 8
+padding-horizontal: 20
+text-align: center
+
+--- ftd.column:
+if: $body is not null
+margin-top: 20
+
+--- markdown:
+body: $body
+
+--- container: ftd.main
+
+--- ftd.column:
+if: $body is null
+margin-top: 20
+
+
+
+
+-- ftd.iframe iframe:
+string src:
+src: $src
+height: 400
+width: fill
+margin-bottom: 34
+
+
+
+
+
+
+
+
+-- ftd.iframe youtube:
+caption v:
+youtube: $v
+height: 400
+width: fill
+margin-bottom: 34
+
+
+
+
+
+-- ftd.column h1:
+caption title:
+optional body body:
+width: fill
+region: h1
+
+
+--- ftd.row:
+if: not $is-mobile
+spacing: 10
+width: fill
+
+--- ftd.text: $title
+region: title
+role: $fpm.type.heading-large
+style: bold
+color: $fpm.color.main.text-strong
+
+--- ftd.text: :
+move-left: 7
+role: $fpm.type.heading-large
+color: $fpm.color.main.text-strong
+style: bold
+
+--- container: ftd.main
+
+--- ftd.row:
+if: $is-mobile
+spacing: 10
+width: fill
+
+--- ftd.text: $title
+region: title
+role: $fpm.type.copy-relaxed
+color: $fpm.color.main.text
+style: bold
+
+--- ftd.text: :
+move-left: 7
+role: $fpm.type.copy-relaxed
+color: $fpm.color.main.text
+style: bold
+
+--- container: ftd.main
+
+--- markdown:
+if: $body is not null
+body: $body
+
+
+
+
+
+
+
+
+
+
+-- ftd.column h2:
+caption title:
+optional body body:
+width: fill
+
+
+--- ftd.row:
+if: not $is-mobile
+spacing: 10
+width: fill
+
+--- ftd.text: $title
+role: $fpm.type.heading-medium
+color: $fpm.color.main.text
+style: bold
+
+--- ftd.text: :
+move-left: 7
+role: $fpm.type.heading-medium
+color: $fpm.color.main.text
+style: bold
+
+
+--- container: ftd.main
+
+--- ftd.row:
+if: $is-mobile
+spacing: 10
+width: fill
+
+--- ftd.text: $title
+region: title
+role: $fpm.type.copy-relaxed
+color: $fpm.color.main.text
+style: bold
+
+--- ftd.text: :
+move-left: 7
+role: $fpm.type.copy-relaxed
+color: $fpm.color.main.text
+style: bold
+
+--- container: ftd.main
+
+--- markdown:
+if: $body is not null
+body: $body
+
+
+
+
+
+
+
+
+
+
+-- ftd.column h3:
+caption title:
+optional body body:
+width: fill
+region: h3
+padding-bottom: 12
+
+--- ftd.row:
+if: not $is-mobile
+spacing: 10
+width: fill
+
+--- ftd.text: $title
+region: title
+role: $fpm.type.heading-small
+color: $fpm.color.main.text
+style: bold
+
+
+--- ftd.text: :
+move-left: 7
+role: $fpm.type.heading-small
+color: $fpm.color.main.text
+style: bold
+
+--- container: ftd.main
+
+--- ftd.row:
+if: $is-mobile
+spacing: 10
+width: fill
+
+--- ftd.text: $title
+region: title
+role: $fpm.type.copy-relaxed
+color: $fpm.color.main.text
+style: bold
+
+--- ftd.text: :
+move-left: 7
+role: $fpm.type.copy-relaxed
+color: $fpm.color.main.text
+style: bold
+
+--- container: ftd.main
+
+--- markdown:
+if: $body is not null
+body: $body
+
+
+
+-- ftd.text markdown:
+body body:
+optional boolean collapsed:
+optional caption title:
+optional boolean two_columns:
+text: $body
+role: $fpm.type.copy-relaxed
+color: $fpm.color.main.text
+padding-bottom: $fpm.space.space-2
