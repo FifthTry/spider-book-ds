@@ -48,7 +48,7 @@ $show-mobile-sidebar: $show-mobile-sidebar
 
 --- container: ftd.main
 
---- search-sidebar:
+/--- search-sidebar:
 if: $show-search
 $show-search: $show-search
 
@@ -123,11 +123,11 @@ site-name: $site-name
 
 --- container: j-onej
 
---- ftd.row:
+/--- ftd.row:
 if: not $is-mobile
 width: percent 46
 
---- ftd.image:
+/--- ftd.image:
 src: $assets.files.static.search.png
 top: 14
 left: 84
@@ -135,7 +135,7 @@ anchor: parent
 width: 16
 height: 16
 
---- ftd.input:
+/--- ftd.input:
 width: fill
 placeholder: Enter passsword
 role: $fpm.type.copy-tight
