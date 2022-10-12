@@ -7,6 +7,9 @@
 
 -- boolean sidebar-open: false
 
+-- boolean show-section: false
+
+
 -- fpm.sitemap-data sitemap:
 $processor$: sitemap
 
@@ -15,6 +18,8 @@ $processor$: sitemap
 -- is-mobile: true
 if: $ftd.device == mobile
 
+-- fpm.toc-item list page-heading:
+$processor$: page-headings
 
 -- optional string site-name:  FifthTry Developer
 
@@ -34,9 +39,7 @@ light: $assets.files.static.fifthtry-logo.svg.light
 $processor$: toc
 
 - English: /
-- Hindi: /hi
-- Spanish: /es
-- German: /de
+
 
 
 -- fpm.toc-item list sitelinks-3-column:
@@ -96,6 +99,7 @@ url: /
 fpm.toc-item list sections: $sitemap.sections
 fpm.toc-item list sub-sections: $sitemap.subsections
 fpm.toc-item list toc: $sitemap.toc
+fpm.toc-item list page-heading: $page-heading
 optional fpm.toc-item current-section: $sitemap.current-section
 optional fpm.toc-item current-subsection: $sitemap.current-subsection
 optional fpm.toc-item current-page: $sitemap.current-page
@@ -211,19 +215,87 @@ margin-right: 8
 
 --- container: main-column
 
+--- ftd.column:
+if: $page-heading is not empty
+width: fill
+if: $is-mobile
+id: main-one-column
+
+--- ftd.row:
+width: fill
+background-color: $fpm.color.main.cta-secondary.hover
+id: change-container
+padding-horizontal: $fpm.space.space-5
+padding-vertical: 8
+$on-click$: toggle $show-section 
+spacing: 26
+
+
+--- ftd.text: Table of Content
+role: $fpm.type.fine-print
+color: $fpm.color.main.text-strong
+width: fill
+
+--- container: change-container
+
+--- ftd.row:
+align: right
+height: fill
+
+
+--- ftd.row:
+align: center
+width: fill
+
+--- ftd.image: 
+if: not $show-section 
+src: $assets.files.static.down-arrow.svg
+height: auto
+width: 12
+padding-top: 4
+
+--- ftd.image: 
+if: $show-section 
+src: $assets.files.static.up-arrow.svg
+height: auto
+width: 12
+padding-top: 4
+
+--- container: main-one-column
+
+--- ftd.column: 
+if: $show-section
+width: fill
+background-color: $fpm.color.main.background.step-2
+
+--- ftd.column:
+width: fill
+spacing: 8
+padding-vertical: 12
+padding-horizontal: 24
+overflow-x: auto
+
+--- render-page-heading:
+if: $page-heading is not empty
+page-heading-obj: $page-heading
+
+
+--- container: main-column
+
 --- ftd.row:
 max-width: $width
 max-width if $widthfill: fill
 id: main-row
-align if not $widthfill: center
+align if $toc is empty: center
+max-width if $toc is not empty: fill
+width: fill
 
 
---- ftd.row:
+--- ftd.column:
 if: $current-page is not null
-width: percent 50
-width if $widthfill: percent 100
+width if not $is-mobile: percent 20
 
---- ftd.row:
+--- ftd.column:
 if: not $is-mobile
 width: fill
 
@@ -231,16 +303,25 @@ width: fill
 if: $toc is not empty
 toc-obj: $toc
 
-
 --- container: main-row
 
 --- ftd.column:
-align: center
+width if $page-heading is not empty: percent 78
+width: fill
+width if $is-mobile: fill
+
+--- ftd.row:
+align  if $toc is not empty: center
+id: center-content
+width if $toc is  empty: fill
 
 --- ftd.column:
+max-width if $page-heading is not empty: 748
+width if $page-heading is empty: fill
 max-width: $width
 max-width if $widthfill: fill
-width: fill
+width if $toc is empty: $width
+width if $widthfill: fill
 align: center
 min-height : calc 100vh - 512px
 padding-horizontal if not $widthfill: 24
@@ -256,6 +337,19 @@ width: fill
 wrap: true
 id: main-container
 spacing: space-between
+
+
+--- container: center-content
+
+--- ftd.column:
+if: not $is-mobile
+width: fill
+if: $page-heading is not empty
+
+--- render-page-heading:
+if: $page-heading is not empty
+page-heading-obj: $page-heading
+
 
 --- container: main-column
 
@@ -560,8 +654,43 @@ toc: $obj
 
 
 
+-- ftd.column render-page-heading:
+fpm.toc-item list page-heading-obj:
+width: fill
+
+--- page-heading-loop:
+$loop$: $page-heading-obj as $obj
+page-heading: $obj
 
 
+
+
+
+
+
+
+-- ftd.column page-heading-loop:
+fpm.toc-item page-heading:
+width: fill
+
+
+--- ftd.text:
+link: $page-heading.url
+text: $page-heading.title
+role: $fpm.type.copy-relaxed
+min-width: fit-content
+color: $fpm.color.main.text
+
+
+--- container: ftd.main
+
+--- ftd.column:
+width: fill
+margin-left: 28
+
+--- page-heading-loop:
+$loop$: $page-heading.children as $obj
+page-heading: $obj
 
 
 
@@ -867,7 +996,7 @@ body: $body
 caption title:
 optional body body:
 width: fill
-
+region: h2
 
 --- ftd.row:
 if: not $is-mobile
@@ -878,6 +1007,7 @@ width: fill
 role: $fpm.type.heading-medium
 color: $fpm.color.main.text
 style: bold
+region: title
 
 --- ftd.text: :
 move-left: 7

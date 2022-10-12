@@ -1,9 +1,12 @@
 -- import: fpm
 -- import: fifthtry.github.io/chrome-book-ds as ft
 
+-- fpm.toc-item list ph:
+$processor$: page-headings
+
 
 -- ft.page: 
-widthfill: true
+
 
 
 
@@ -14,6 +17,7 @@ width: fill
 you are building, people will be importing it etc, so pick the name accordingly:
 
 -- ft.h3: Heading 3 blog post list title
+id: jjjj
 
 Lorem ipsum dolor sit amet, an ius porro denique eleifend, ne natum dolore 
 interpretaris has. Sit tantas vocibus contentiones te, est accusata definitiones 
@@ -21,13 +25,15 @@ ad. Ne rebum facilis phaedrum quo. Doctus malorum an nam.
 
 
 -- ft.h2: Heading 2 blog post list title
+id: kkkkk
 
-Lorem ipsum dolor sit amet, an ius porro denique eleifend, ne natum dolore 
+orem ipsum dolor sit amet, an ius porro denique eleifend, ne natum dolore 
 interpretaris has. Sit tantas vocibus contentiones te, est accusata definitiones 
 ad. Ne rebum facilis phaedrum quo. Doctus malorum an nam.
 
 
 -- ft.h3: Heading 3 blog post list title
+id: oo
 
 Lorem ipsum dolor sit amet, an ius porro denique eleifend, ne natum dolore 
 interpretaris has. Sit tantas vocibus contentiones te, est accusata definitiones 

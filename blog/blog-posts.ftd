@@ -58,7 +58,7 @@ url: /
 
 
 -- ft.page:
-width: 1240
+widthfill: true
 
 -- participate: LOREM LIPSUM
 hashtag-list: $hashtag-list
@@ -252,19 +252,13 @@ color: $fpm.color.main.text
 caption title:
 string url:
 width: auto
-margin-right: 32
+margin-right: 8
 border-color: $fpm.color.main.text
 border-width: 1
 border-radius: 20
-padding-vertical: 6
+padding-vertical: 4
 padding-horizontal: 12
 margin-bottom: 16
-
-
-
---- ftd.text: \#
-role: $fpm.type.fine-print
-color: $fpm.color.main.text
 
 --- ftd.text: $title
 role: $fpm.type.fine-print

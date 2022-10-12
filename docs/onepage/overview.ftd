@@ -2,19 +2,13 @@
 -- import: fifthtry.github.io/chrome-book-ds as ft
 
 
+-- fpm.toc-item list ph:
+$processor$: page-headings
+
+
 -- ft.page:
-widthfill: true
+page-heading: $ph
 
-
-
--- overview: cDoc
-published-day: tuesday
-published-date: 10 June
-
-cdoc is an open source web application that integrates with Github and works 
-like continuous integration.Lorem ipsum dolor sit amet, an ius porro denique 
-eleifend, ne natum dolore interpretaris has. Sit tantas vocibus contentiones te,
-est accusata definitiones ad. Ne rebum facilis phaedrum quo. Doctus malorum an nam.
 
 -- ft.youtube:
 v: ZoCGwt_nLbk
@@ -26,6 +20,7 @@ width: fill
 you are building, people will be importing it etc, so pick the name accordingly:
 
 -- ft.h3: Heading 3 blog post list title
+id: one
 
 Lorem ipsum dolor sit amet, an ius porro denique eleifend, ne natum dolore 
 interpretaris has. Sit tantas vocibus contentiones te, est accusata definitiones 
@@ -33,6 +28,7 @@ ad. Ne rebum facilis phaedrum quo. Doctus malorum an nam.
 
 
 -- ft.h2: Heading 2 blog post list title
+id: two
 
 Lorem ipsum dolor sit amet, an ius porro denique eleifend, ne natum dolore 
 interpretaris has. Sit tantas vocibus contentiones te, est accusata definitiones 
@@ -40,10 +36,24 @@ ad. Ne rebum facilis phaedrum quo. Doctus malorum an nam.
 
 
 -- ft.h3: Heading 3 blog post list title
+id: three
 
 Lorem ipsum dolor sit amet, an ius porro denique eleifend, ne natum dolore 
 interpretaris has. Sit tantas vocibus contentiones te, est accusata definitiones 
 ad. Ne rebum facilis phaedrum quo. Doctus malorum an nam.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -- ftd.column overview:
 caption title:
