@@ -11,7 +11,7 @@ $processor$: page-headings
 
 
 -- ft.image:
-src: $assets.files.images.dark-mode.new-repo.png
+src: $assets.files.static.box-image.png
 width: fill
 
 you are building, people will be importing it etc, so pick the name accordingly:
