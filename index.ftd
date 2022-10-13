@@ -1,3 +1,4 @@
+
 -- import: fpm
 -- import: fifthtry.github.io/chrome-book-ds as ft
 -- import: fifthtry.github.io/language-switcher as ls
@@ -216,9 +217,14 @@ margin-right: 8
 --- container: main-column
 
 --- ftd.column:
-if: $page-heading is not empty
-width: fill
 if: $is-mobile
+
+--- ftd.column:
+if: $page-heading is not empty
+
+
+--- ftd.column:
+width: fill
 id: main-one-column
 
 --- ftd.row:
@@ -317,7 +323,6 @@ width if $toc is  empty: fill
 
 --- ftd.column:
 max-width if $page-heading is not empty: 748
-width if $page-heading is empty: fill
 max-width: $width
 max-width if $widthfill: fill
 width if $toc is empty: $width
@@ -342,9 +347,11 @@ spacing: space-between
 --- container: center-content
 
 --- ftd.column:
-if: not $is-mobile
-width: fill
 if: $page-heading is not empty
+
+--- ftd.column:
+if: not $is-mobile
+width if $page-heading is not empty: fill
 
 --- render-page-heading:
 if: $page-heading is not empty
@@ -658,6 +665,11 @@ toc: $obj
 fpm.toc-item list page-heading-obj:
 width: fill
 
+--- ftd.text: Table of Contents
+role: $fpm.type.fine-print
+color: $fpm.color.main.text
+margin-bottom: 12
+
 --- page-heading-loop:
 $loop$: $page-heading-obj as $obj
 page-heading: $obj
@@ -677,16 +689,21 @@ width: fill
 --- ftd.text:
 link: $page-heading.url
 text: $page-heading.title
-role: $fpm.type.copy-relaxed
-min-width: fit-content
+role: $fpm.type.fine-print
 color: $fpm.color.main.text
+margin-bottom: 8
 
 
 --- container: ftd.main
 
+
 --- ftd.column:
+if: $page-heading.children is not empty
 width: fill
-margin-left: 28
+padding-left: 12
+margin-bottom: 8
+border-left: 1
+border-color: $fpm.color.main.background.code
 
 --- page-heading-loop:
 $loop$: $page-heading.children as $obj
