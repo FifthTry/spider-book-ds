@@ -1,17 +1,14 @@
 -- import: fpm
 -- import: fifthtry.github.io/chrome-book-ds as ft
 
-
 -- fpm.toc-item list ph:
 $processor$: page-headings
 
 
--- ft.page:
-page-heading: $ph
+-- ft.page: 
 
 
--- ft.youtube:
-v: ZoCGwt_nLbk
+
 
 -- ft.image:
 src: $assets.files.images.dark-mode.new-repo.png
@@ -20,7 +17,7 @@ width: fill
 you are building, people will be importing it etc, so pick the name accordingly:
 
 -- ft.h3: Heading 3 blog post list title
-id: one
+id: jjjj
 
 Lorem ipsum dolor sit amet, an ius porro denique eleifend, ne natum dolore 
 interpretaris has. Sit tantas vocibus contentiones te, est accusata definitiones 
@@ -28,67 +25,19 @@ ad. Ne rebum facilis phaedrum quo. Doctus malorum an nam.
 
 
 -- ft.h2: Heading 2 blog post list title
-id: two
+id: kkkkk
 
-Lorem ipsum dolor sit amet, an ius porro denique eleifend, ne natum dolore 
+orem ipsum dolor sit amet, an ius porro denique eleifend, ne natum dolore 
 interpretaris has. Sit tantas vocibus contentiones te, est accusata definitiones 
 ad. Ne rebum facilis phaedrum quo. Doctus malorum an nam.
 
 
 -- ft.h3: Heading 3 blog post list title
-id: three
+id: oo
 
 Lorem ipsum dolor sit amet, an ius porro denique eleifend, ne natum dolore 
 interpretaris has. Sit tantas vocibus contentiones te, est accusata definitiones 
 ad. Ne rebum facilis phaedrum quo. Doctus malorum an nam.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
--- ftd.column overview:
-caption title:
-string published-day:
-string published-date:
-optional body body:
-width: fill
-color: $fpm.color.main.text
-margin-bottom: 24
-spacing: 16
-
---- ftd.text: $title
-role: $fpm.type.heading-hero
-
---- ftd.row:
-width: fill
-spacing: 4
-
---- ftd.text: Published on 
-role: $fpm.type.copy-tight
-
---- ftd.text: $published-day
-role: $fpm.type.copy-tight
-
---- ftd.text: ,
-role: $fpm.type.copy-tight
-
---- ftd.text: $published-date
-role: $fpm.type.copy-tight
-
---- container: ftd.main
-
-
---- ftd.text: 
-text: $body
-role: $fpm.type.copy-relaxed
 
 

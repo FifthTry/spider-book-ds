@@ -1,21 +1,12 @@
 -- import: fpm
 -- import: fifthtry.github.io/chrome-book-ds as ft
 
--- ft.page:
-widthfill: true
-
--- project-card: TOOLS & LIBRARIES
-project-list: $project-list
-
-
--- project-card: TOOLS & LIBRARIES
-project-list: $projects-list
-
 -- record project:
 caption title:
 string url:
 ftd.image-src image:
 body body:
+
 
 -- project list project-list:
 
@@ -42,6 +33,8 @@ image: $assets.files.static.home.png
 url: docs/onepage/one-page
 
 ftd-py: Python Package for Working With FTD/FPM
+
+
 
 
 
@@ -86,6 +79,39 @@ url: docs/onepage/one-page
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+
+
+
+
+
+
+
+
+
+
+
+
+-- ft.page:
+widthfill: true
+
+-- project-card: TOOLS & LIBRARIES
+project-list: $project-list
+
+
+-- project-card: TOOLS & LIBRARIES
+project-list: $projects-list
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

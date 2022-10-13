@@ -40,6 +40,7 @@ ftd.image-src logo:
 body body:
 show-toc list toc-list: $toc-list
 boolean show-shrink: false
+width: fill
 
 --- ftd.column:
 id: change-one
