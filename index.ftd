@@ -113,6 +113,7 @@ width: fill
 boolean widthfill: false
 open: true
 append-at: main-container
+boolean toc-click: false
 
 --- h.header:
 sections: $sections
@@ -218,34 +219,37 @@ margin-right: 8
 
 --- ftd.column:
 if: $is-mobile
+width: fill
 
 --- ftd.column:
 if: $page-heading is not empty
-
+width: fill
 
 --- ftd.column:
 width: fill
 id: main-one-column
+$on-click-outside$: $toc-click = true
 
 --- ftd.row:
-width: fill
-background-color: $fpm.color.main.cta-secondary.hover
+background-color if $toc-click: $fpm.color.main.cta-secondary.hover
 id: change-container
 padding-horizontal: $fpm.space.space-5
 padding-vertical: 8
 $on-click$: toggle $show-section 
 spacing: 26
-
+width: fill
+$on-click$: $toc-click = true
 
 --- ftd.text: Table of Content
 role: $fpm.type.fine-print
 color: $fpm.color.main.text-strong
-width: fill
+white-space: nowrap
+style: semi-bold
 
 --- container: change-container
 
 --- ftd.row:
-align: right
+margin-left: 12
 height: fill
 
 
@@ -295,15 +299,15 @@ id: main-row
 align if $toc is empty: center
 max-width if $toc is not empty: fill
 width: fill
-
+margin-top if $page-heading is not empty: 32
 
 --- ftd.column:
 if: $current-page is not null
-width if not $is-mobile: percent 20
+width if not $is-mobile: percent 18
 
 --- ftd.column:
 if: not $is-mobile
-width: fill
+width: 250
 
 --- render-toc:
 if: $toc is not empty
@@ -312,7 +316,7 @@ toc-obj: $toc
 --- container: main-row
 
 --- ftd.column:
-width if $page-heading is not empty: percent 78
+width if $page-heading is not empty: percent 80
 width: fill
 width if $is-mobile: fill
 
@@ -332,6 +336,7 @@ min-height : calc 100vh - 512px
 padding-horizontal if not $widthfill: 24
 padding-vertical: 24
 padding-horizontal: 24
+
 
 --- ftd.column:
 align: center
@@ -666,9 +671,10 @@ fpm.toc-item list page-heading-obj:
 width: fill
 
 --- ftd.text: Table of Contents
-role: $fpm.type.fine-print
+role: $fpm.type.copy-tight
 color: $fpm.color.main.text
 margin-bottom: 12
+style: semi-bold
 
 --- page-heading-loop:
 $loop$: $page-heading-obj as $obj
@@ -689,7 +695,7 @@ width: fill
 --- ftd.text:
 link: $page-heading.url
 text: $page-heading.title
-role: $fpm.type.fine-print
+role: $fpm.type.label-small
 color: $fpm.color.main.text
 margin-bottom: 8
 
@@ -748,20 +754,20 @@ id: jjjj
 
 --- ftd.row:
 if: not $open
-width: 24
+width: 12
 
 
 --- ftd.image:
 if: $toc.children is not empty
 src: $assets.files.static.down.svg
 $on-click$: $open= true
-
+margin-top: -4
 
 --- container: jjjj
 
 --- ftd.row:
 if: $open
-width: 24
+width: 12
 
 --- ftd.image:
 if: $toc.children is not empty
@@ -770,6 +776,7 @@ $on-click$: $open= false
 width: 12
 padding-top: 8
 margin-left: 6
+margin-top: -6
 
 
 
@@ -779,7 +786,7 @@ margin-left: 6
 if: $toc.url is not null
 link: $toc.url
 text: $toc.title
-role: $fpm.type.copy-relaxed
+role: $fpm.type.label-small
 min-width: fit-content
 color: $fpm.color.main.text
 color if $toc.is-active: $fpm.color.main.cta-primary.base
@@ -787,7 +794,7 @@ color if $toc.is-active: $fpm.color.main.cta-primary.base
 --- ftd.text:
 if: $toc.url is null
 text: $toc.title
-role: $fpm.type.copy-relaxed
+role: $fpm.type.label-small
 min-width: fit-content
 color: $fpm.color.main.text
 color if $toc.is-active: $fpm.color.main.cta-primary.base

@@ -18,13 +18,13 @@ download-base-url: https://raw.githubusercontent.com/fifthtry/chrome-book-ds/mai
 # Docs: /docs/doc
 nav-title: Documentation
 
-## sub-section: /docs/onepage/one-page
+## Sub-section: /docs/onepage/one-page
 
-- overview: /docs/onepage/overview
-- page-one: 
+- Overview: /docs/onepage/overview
+- Document 
 url:
-  - page-one: /docs/onepage/multiple/one
-
+  - first: /docs/onepage/multiple/one
+    
 
 # blog: /blog/blog-posts/
 ## participate: /blog/participate/

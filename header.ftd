@@ -81,7 +81,8 @@ width: fill
 
 
 --- ftd.row:
-padding-vertical: 12
+padding-top: 10
+padding-bottom: 8
 padding-horizontal: 24
 border-bottom: 2
 border-color: $fpm.color.main.background.overlay
@@ -262,11 +263,11 @@ width: 64
 
 --- ftd.text: $site-name
 if: $site-name is not null
-role: $fpm.type.fine-print
+role: $fpm.type.copy-tight
 color: $fpm.color.main.text-strong
 white-space: nowrap
-padding-top: 4
-margin-left: 8
+padding-top: 6
+margin-left: 12
 
 --- container: sidebar-container
 
