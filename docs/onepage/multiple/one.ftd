@@ -1,11 +1,12 @@
 -- import: fpm
--- import: fifthtry.github.io/chrome-book-ds as ft
+-- import: fifthtry.github.io/spider-book-ds as ft
 
 -- fpm.toc-item list ph:
 $processor$: page-headings
 
 
 -- ft.page: 
+page-heading: $ph
 
 
 
