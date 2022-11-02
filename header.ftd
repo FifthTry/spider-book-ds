@@ -69,7 +69,9 @@ $show-mobile-sidebar-second: $show-mobile-sidebar-second
 site-logo: $site-logo
 site-url: $site-url 
 site-name: $site-name
+current-section: $current-section
 current-subsection: $current-subsection
+sub-sections: $sub-sections
 sections: $sections
 toc: $toc
 
@@ -83,8 +85,8 @@ width: fill
 --- ftd.row:
 padding-vertical: 12
 padding-horizontal: 24
-border-bottom: 2
-border-color: $fpm.color.main.background.overlay
+border-bottom: 1
+border-color: $fpm.color.main.custom.six
 width: fill
 id: j-onej
 
@@ -154,19 +156,22 @@ margin-left: 64
 optional ftd.image-src site-logo: $assets.files.static.fifthtry-logo.svg
 string site-url: $site-url
 optional string site-name: $site-name
-fpm.toc-item list sections: $empty-toc
-fpm.toc-item list toc: $empty-toc
+fpm.toc-item list sections: 
+fpm.toc-item list sub-sections: 
+fpm.toc-item list toc: 
+optional fpm.toc-item current-section: 
+optional fpm.toc-item current-subsection: 
+optional fpm.toc-item current-page: 
 boolean $show-search: 
 boolean $show-mobile-sidebar: 
 boolean $show-mobile-sidebar-second: 
-optional fpm.toc-item current-subsection: 
 width: fill
 
 --- ftd.row:
 padding-vertical: 24
 padding-horizontal: 20
 border-bottom : 1
-border-color: $fpm.color.main.background.overlay
+border-color: $fpm.color.main.custom.six
 width: fill
 id: j-onej
 
@@ -209,16 +214,53 @@ site-name: $site-name
 
 --- container: j-onej
 
---- ftd.row:
+\--- ftd.row:
 padding-vertical: 2
 padding-horizontal: 8
 
---- ftd.image:
+\--- ftd.image:
 src: $assets.files.static.search.png
 width: 24
 align: center
 $on-click$: toggle $show-search
 
+
+--- container: ftd.main
+
+--- ftd.row:
+width: fill
+id: bottom-row
+
+
+--- ftd.row:
+width: auto
+
+--- ftd.text: $current-section.title
+if: $current-section.title is not null
+role: $fpm.type.label-small
+color: $fpm.color.main.text
+link: $current-section.url
+background-color: $fpm.color.main.background.step-1
+padding-vertical: 8
+padding-horizontal: 8
+width: fill
+white-space: nowrap
+
+
+--- container: bottom-row
+
+--- ftd.row:
+width: fill
+spacing: 8
+padding-top: 8
+overflow-x: auto
+
+
+--- header-item-mobile-view: $obj.title
+$loop$: $sub-sections as $obj
+children: $obj.children 
+is-active: $obj.is-active
+link: $obj.url
 
 --- container: ftd.main
 
@@ -231,7 +273,7 @@ align: top-left
 anchor: window
 left: 0
 top: 0
-background-color: $fpm.color.main.background.step-1
+background-color: $fpm.color.main.background.base
 z-index: 4
 id: sidebar-container
 
@@ -239,7 +281,7 @@ id: sidebar-container
 --- ftd.row:
 width: fill
 border-bottom:1
-border-color: $fpm.color.main.background.overlay
+border-color: $fpm.color.main.custom.six
 padding-vertical: 24
 padding-horizontal: 20
 
@@ -301,7 +343,7 @@ align: top-left
 anchor: window
 left: 0
 top: 0
-background-color: $fpm.color.main.background.step-1
+background-color: $fpm.color.main.background.base
 z-index: 4
 id: sidebar-container-one
 
@@ -309,7 +351,7 @@ id: sidebar-container-one
 --- ftd.row:
 width: fill
 border-bottom:1
-border-color: $fpm.color.main.background.overlay
+border-color: $fpm.color.main.custom.six
 padding-vertical: 24
 padding-horizontal: 20
 
@@ -647,3 +689,35 @@ role: $fpm.type.heading-large
 color: $fpm.color.main.text-strong
 align: center
 white-space: nowrap
+
+
+
+
+
+
+-- ftd.column header-item-mobile-view: 
+caption title:
+optional string link:
+boolean is-active: 
+width: fill
+
+--- ftd.text: $title
+role: $fpm.type.fine-print
+link: $link
+white-space: nowrap
+padding-left: 10
+color: $fpm.color.main.text
+color if $is-active: $fpm.color.main.cta-primary.base
+border-color: $fpm.color.main.text-strong
+margin-left: 10
+
+--- ftd.text: $title
+if: $link is null
+role: $fpm.type.fine-print
+/padding-bottom: 15
+white-space: nowrap
+padding-left: 10
+color: $fpm.color.main.text
+color if $is-active: $fpm.color.main.cta-primary.base
+margin-left: 20
+cursor: auto

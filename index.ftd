@@ -113,6 +113,8 @@ width: fill
 boolean widthfill: false
 open: true
 append-at: main-container
+optional caption title:
+optional body body:
 
 --- h.header:
 sections: $sections
@@ -123,6 +125,8 @@ current-section: $current-section
 current-subsection: $current-subsection
 current-page: $current-page
 toc: $toc
+sub-sections: $sub-sections
+
 
 --- container: ftd.main
 
@@ -138,8 +142,8 @@ border-right: 1
 min-height: calc ( 100vh - 2px)
 height: fill
 border-color: $fpm.color.main.text
-spacing: 32
-
+spacing: 24
+max-width: 80
 
 --- header-link: $obj.title
 $loop$: $sections as $obj
@@ -152,16 +156,20 @@ text-active: $fpm.color.main.cta-primary.base
 
 --- container: toc-page
 
-
 --- ftd.column:
 width: fill
 id: main-column
 
 --- ftd.row:
+if: not $is-mobile
 width: fill
 id: selection-container
 padding-vertical: 24
 padding-horizontal:24
+
+--- ftd.row:
+width: fill
+id: header-container
 
 --- ftd.row:
 if: $current-section is not null
@@ -184,7 +192,7 @@ align: center
 padding-top: 4
 margin-right: 8
 
---- container: selection-container
+--- container: header-container
 
 --- ftd.text: $current-subsection.title
 if: $current-subsection.title is not null
@@ -204,7 +212,7 @@ height: 16
 padding-top: 4
 margin-right: 8
 
---- container: selection-container
+--- container:header-container
 
 --- ftd.text:$current-page.title 
 if: $current-page.title is not null
@@ -214,14 +222,27 @@ link: $current-page.url
 white-space: nowrap
 margin-right: 8
 
+--- container: selection-container
+
+--- ftd.row:
+width: auto
+align: right
+spacing: 32
+
+--- header-item: $obj.title
+$loop$: $sub-sections as $obj
+is-active: $obj.is-active
+link: $obj.url
+
 --- container: main-column
 
 --- ftd.column:
 if: $is-mobile
+width: fill
 
 --- ftd.column:
 if: $page-heading is not empty
-
+width: fill
 
 --- ftd.column:
 width: fill
@@ -240,7 +261,6 @@ spacing: 26
 --- ftd.text: Table of Content
 role: $fpm.type.fine-print
 color: $fpm.color.main.text-strong
-width: fill
 
 --- container: change-container
 
@@ -342,6 +362,15 @@ width: fill
 wrap: true
 id: main-container
 spacing: space-between
+
+
+--- h0: $title
+if: $title is not null
+
+--- markdown:
+if: $body is not null
+
+$body
 
 
 --- container: center-content
@@ -847,7 +876,7 @@ toc: $obj
 
 
 
--- ftd.row header-link: 
+-- ftd.column header-link: 
 caption title:
 boolean is-active:
 optional string link:
@@ -855,14 +884,22 @@ ftd.color border: $fpm.color.main.background.base
 ftd.color border-active: $fpm.color.main.text
 ftd.color text: $fpm.color.main.text
 ftd.color text-active: $fpm.color.main.cta-primary.base
+spacing: 4
+width: fill
+
+--- ftd.image:
+src: $assets.files.static.home-icon.png
+width: 26
+height: auto
+align: center
 
 --- ftd.text: $title
 if: $link is null 
 role:$fpm.type.copy-tight
 color: $text
 color if $is-active: $text-active
-align: center
-white-space: nowrap
+text-align: center
+width: fill
 
 --- ftd.text: $title
 if: $link is not null 
@@ -870,8 +907,9 @@ role:$fpm.type.copy-tight
 color: $text
 color if $is-active: $text-active
 link: $link
-align: center
-white-space: nowrap
+text-align: center
+width: fill
+
 
 
 
@@ -1128,3 +1166,141 @@ text: $body
 role: $fpm.type.copy-relaxed
 color: $fpm.color.main.text
 padding-bottom: $fpm.space.space-2
+
+
+-- ftd.column content:
+width: fill
+open: true
+append-at: content-container
+padding-vertical: 30
+
+--- ftd.column:
+if: not $is-mobile
+max-width: 800
+width: fill
+align: center
+id:  content-container
+
+--- container: ftd.main
+
+--- ftd.column:
+if: $is-mobile
+width: fill
+align: center
+padding-horizontal: 20
+id:  content-container
+
+
+
+-- ftd.column h0:
+caption title:
+optional body body:
+width: fill
+region: h0
+append-at: inner
+margin-top: 0
+margin-bottom: 32
+
+
+--- ftd.text:
+caption $title:
+region: title
+role: $fpm.type.heading-hero
+text: $title
+color: $fpm.color.main.text-strong
+padding-bottom: 16
+padding-top: 8
+$on-click$ if $open: toggle $open
+
+--- ftd.column:
+id: inner
+width: fill
+margin-bottom if $body is not null: -26
+
+--- markdown:
+if: $body is not null
+body: $body
+
+
+
+
+
+
+
+-- ftd.column code:
+optional caption caption:
+body body:
+string lang:
+padding-bottom: 12
+padding-top: 12
+width: fill
+
+--- ftd.text:
+text: $caption
+if: $caption is not null
+role: $fpm.type.copy-relaxed
+color: $fpm.color.main.text
+width: fill
+background-color: $fpm.color.main.background.step-2
+padding-top: 10
+padding-bottom: 10
+padding-left: 20
+padding-right: 20
+border-top-radius: 4
+
+--- ftd.code:
+if: $ftd.dark-mode
+text: $body
+lang: $lang
+width: fill
+role: $fpm.type.copy-relaxed
+color: $fpm.color.main.text
+padding-top: 10
+padding-left: 20
+padding-bottom: 10
+padding-right: 20
+background-color: $fpm.color.main.background.code
+border-top-radius if $caption is null: 4
+border-bottom-radius: 4
+border-width: 1
+border-color: $fpm.color.main.background.step-1
+overflow-x: auto
+
+--- ftd.code:
+if: not $ftd.dark-mode
+text: $body
+lang: $lang
+width: fill
+role: $fpm.type.copy-relaxed
+color: $fpm.color.main.text
+padding-top: 10
+padding-left: 20
+padding-bottom: 10
+padding-right: 20
+background-color: $fpm.color.main.background.code
+border-top-radius if $caption is null: 4
+border-bottom-radius if $caption is null: 4
+border-color: $fpm.color.main.background.step-1
+border-width: 1
+overflow-x: auto
+
+
+
+
+
+
+
+-- ftd.row header-item: 
+caption title:
+optional string link:
+boolean is-active: 
+width: fill
+
+
+--- ftd.text: $title
+link: $link
+white-space: nowrap
+color: $fpm.color.main.text-strong
+color if $is-active: $fpm.color.main.cta-primary.base
+role: $fpm.type.copy-tight
+
