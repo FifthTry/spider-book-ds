@@ -14,8 +14,11 @@ download-base-url: https://raw.githubusercontent.com/fifthtry/spider-book-ds/mai
 -- fpm.sitemap:
 
 # Home: /page
+icon: /static/home-icon.png
+
 
 # Docs: /docs/doc
+icon: /static/docs.png
 nav-title: Documentation
 
 ## sub-section: /docs/onepage/one-page
@@ -27,6 +30,7 @@ url:
 
 
 # blog: /blog/blog-posts/
+icon: /static/blog.png
 ## participate: /blog/participate/
 
 
