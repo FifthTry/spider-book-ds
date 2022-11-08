@@ -148,6 +148,7 @@ max-width: 80
 --- header-link: $obj.title
 $loop$: $sections as $obj
 is-active: $obj.is-active
+font-icon: $obj.font-icon
 link: $obj.url
 border: $fpm.color.main.background.step-1
 border-active: $fpm.color.main.text
@@ -879,6 +880,7 @@ toc: $obj
 -- ftd.column header-link: 
 caption title:
 boolean is-active:
+optional ftd.image-src font-icon:
 optional string link:
 ftd.color border: $fpm.color.main.background.base
 ftd.color border-active: $fpm.color.main.text
@@ -888,7 +890,8 @@ spacing: 4
 width: fill
 
 --- ftd.image:
-src: $assets.files.static.home-icon.png
+src: $font-icon
+if: $font-icon is not null
 width: 26
 height: auto
 align: center
