@@ -16,20 +16,22 @@ if: $ftd.device == mobile
 -- hero-section: LOREM LIPSUM
 image-hero: $assets.files.static.hero-bg.jpg
 hero-cta-text: click here to know
+url: /blog/participate
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
 exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
 irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
 nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa 
 
--- featured-card-one: LOREM LIPSUM
+-- featured-card-one: LOREM LPSUM
 logo: $assets.files.static.chrome.png
 site-name: features
 feature-image: $assets.files.static.hero-bg.jpg
 people-list: $people-list
 date: aug 21 2021
 cta-text: click 
-cta-text-url: /
+cta-text-url: /blog/participate
+url: /blog/participate
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
 
@@ -37,7 +39,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 docs-list: $docs-list
 logo: $assets.files.static.chrome.png
 cta: all documentation
-cta-url: /
+cta-url: /docs/doc/
 
 
 -- featured-card-one: LOREM LIPSUM
@@ -47,8 +49,9 @@ feature-image: $assets.files.static.hero-bg.jpg
 people-list: $people-list
 date: aug 21 2021
 cta-text: click 
-cta-text-url: /
- 
+cta-text-url:  /blog/participate
+url: /blog/participate
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
 
 
@@ -206,6 +209,7 @@ optional body hero-body:
 optional string hero-cta-text:
 width: fill
 background-color: $fpm.color.main.cta-secondary.border
+string url:
 
 
 
@@ -214,12 +218,14 @@ if: not $is-mobile
 image-hero: $image-hero
 hero-body: $hero-body
 hero-cta-text: $hero-cta-text
+url: $url
 
 --- hero-section-mobile: $title
 if: $is-mobile
 image-hero: $image-hero
 hero-body: $hero-body
 hero-cta-text: $hero-cta-text
+url: $url
 
 -- ftd.row hero-section-desktop:
 caption title:
@@ -227,9 +233,15 @@ optional ftd.image-src image-hero:
 optional body hero-body:
 optional string hero-cta-text:
 width: fill
+string url:
 padding-vertical: 72
 padding-horizontal: 32
 border-radius: 12
+
+--- ftd.row:
+link: $url
+width: fill
+id: hero-container
 
 --- ftd.column:
 width: percent 50
@@ -254,7 +266,7 @@ margin-top: 24
 padding-vertical: 8
 padding-horizontal: 24
 
---- container: ftd.main
+--- container: hero-container
 
 --- ftd.image:
 src: $image-hero
@@ -273,8 +285,10 @@ padding-vertical: 24
 padding-horizontal: 24
 border-radius: 12
 spacing: 20
+string url:
 
-
+--- ftd.column:
+link: $url
 
 --- ftd.text: $title
 role: $fpm.type.heading-hero
@@ -344,7 +358,13 @@ border-radius: 12
 border-color: $fpm.color.main.text
 border-width: 1
 margin-top: 42
+optional string url:
 
+
+--- ftd.column:
+width: fill
+id: feature-container
+link: $url
 
 --- ftd.row:
 width: fill
@@ -359,7 +379,7 @@ role: $fpm.type.fine-print
 color: $fpm.color.main.text
 margin-left: 32
 
---- container: ftd.main
+--- container: feature-container
 
 --- ftd.image:
 src: $feature-image
@@ -388,7 +408,7 @@ width: fill
 --- poeple-loop:
 people-list: $people-list
 
---- container: ftd.main
+--- container: feature-container
 
 
 --- ftd.row:
@@ -880,21 +900,25 @@ role: $fpm.type.copy-tight
 -- record docs:
 caption title:
 ftd.image-src image:
+string url:
 
 -- docs list docs-list:
 
 -- docs-list: cDoc
 image: $assets.files.static.doc-framework.png
+url: /docs/onepage/one-page
 
 -- docs-list: FPM
 image: $assets.files.static.fpm.png
+url: /docs/onepage/one-page
 
 -- docs-list: FTD
 image: $assets.files.static.ftd.png
+url: /docs/onepage/one-page
 
 -- docs-list: DF
 image: $assets.files.static.home.png
-
+url: /docs/onepage/one-page
 
 -- ftd.column docs-card:
 width: fill
@@ -940,6 +964,7 @@ width: fill
 --- docs-info-card:
 title: $obj.title
 image: $obj.image
+url: $obj.url
 $loop$: $docs-list as $obj
 
 --- container: ftd.main
@@ -969,6 +994,8 @@ padding-horizontal: 24
 z-index: 1
 margin-left: 32
 background-color if $MOUSE-IN: $fpm.color.main.accent.tertiary
+string url:
+link: $url
 
 --- ftd.column:
 id: change
