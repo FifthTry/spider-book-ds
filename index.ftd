@@ -735,13 +735,16 @@ if: not $is-mobile
 role: $fpm.type.fine-print
 color: $fpm.color.main.text
 margin-bottom: 28
-white-space:nowrap
+white-space: nowrap
 margin-top: 32
 style: medium
 width: fill
 
 --- ftd.column: 
 width: fill
+border-left: 1
+border-color: $fpm.color.main.border-strong
+padding-left: $fpm.space.space-4
 
 --- page-heading-loop:
 $loop$: $page-heading-obj as $obj
@@ -758,7 +761,6 @@ page-heading: $obj
 fpm.toc-item page-heading:
 width: fill
 
-
 --- ftd.text:
 link: $page-heading.url
 text: $page-heading.title
@@ -769,14 +771,10 @@ width: fill
 
 --- container: ftd.main
 
-
 --- ftd.column:
 if: $page-heading.children is not empty
 width: fill
-padding-left: 12
 margin-bottom: 8
-border-left: 1
-border-color: $fpm.color.main.custom.one
 
 --- page-heading-loop:
 $loop$: $page-heading.children as $obj

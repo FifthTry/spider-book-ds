@@ -8,7 +8,7 @@ page-heading: $page-heading
 
 -- ft.content:
 
--- ft.h0: FTD: Programming Language For Prose
+-- ft.h0: FTD: Programming Language For Prose - Heading Hero
 
 -- ft.markdown:
 
@@ -34,7 +34,7 @@ It is not verbose like HTML, and not simplistic like Markdown.
 FTD can be compared with Markdown, but in FTD you can do the following for
 example:
 
--- ft.h1: FTD: Programming Language For Prose
+-- ft.h1: FTD: Programming Language For Prose - Heading Large
 
 -- ft.markdown:
 
@@ -61,7 +61,7 @@ FTD can be compared with Markdown, but in FTD you can do the following for
 example:
 
 
--- ft.h1: FTD: Programming Language For Prose
+-- ft.h2: FTD: Programming Language For Prose  - Heading Medium
 
 -- ft.markdown:
 
@@ -87,7 +87,7 @@ It is not verbose like HTML, and not simplistic like Markdown.
 FTD can be compared with Markdown, but in FTD you can do the following for
 example:
 
--- ft.h2: FTD: Programming Language For Prose
+-- ft.h3: FTD: Programming Language For Prose  - Heading Small
 
 -- ft.markdown:
 
