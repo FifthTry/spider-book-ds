@@ -132,10 +132,13 @@ margin-bottom: 42
 spacing: 16
 
 
+--- ftd.column:
+link: $url
+
+
 --- ftd.text: $title
 role: $fpm.type.heading-medium
 color: $fpm.color.main.text
-link: $url
 
 --- ftd.text: 
 text: $body

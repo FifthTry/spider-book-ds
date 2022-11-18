@@ -121,6 +121,7 @@ optional fpm.toc-item current-section: $sitemap.current-section
 optional fpm.toc-item current-subsection: $sitemap.current-subsection
 optional fpm.toc-item current-page: $sitemap.current-page
 social list social-list: $social-list
+boolean overview: false
 fpm.toc-item list sitelinks-3-column: $sitelinks-3-column
 fpm.toc-item list legal-links: $legal-links
 string copy-right: $copyright
@@ -264,6 +265,7 @@ max-width if $toc is not empty: fill
 width: fill
 
 --- ftd.column:
+if: not $widthfill
 width if not $is-mobile: percent 20
 
 --- ftd.column:
@@ -307,8 +309,10 @@ padding-horizontal: 24
 --- ftd.column:
 align: center
 width: fill
+id: page-parent
 
 --- ftd.row:
+if: not $overview
 wrap: true
 id: main-container
 spacing: space-between
@@ -320,6 +324,22 @@ if: $title is not null
 if: $body is not null
 
 $body
+
+--- container: page-parent
+
+--- ftd.column:
+if: $overview
+id: main-container
+align: center
+
+--- h0: $title
+if: $title is not null
+
+--- markdown:
+if: $body is not null
+
+$body
+
 --- ftd.column:
 if: $is-mobile
 width: fill
@@ -934,6 +954,7 @@ height: 24
 align: center
 
 --- ftd.text: $title
+if: $font-icon is not null
 role:$fpm.type.copy-tight
 color: $text
 color if $is-active: $text-active
@@ -955,6 +976,7 @@ height: 24
 align: center
 
 --- ftd.text: $title
+if: $font-icon is not null
 role:$fpm.type.copy-tight
 color: $text
 color if $is-active: $text-active
