@@ -774,7 +774,7 @@ width: fill
 --- ftd.column:
 if: $page-heading.children is not empty
 width: fill
-margin-bottom: 8
+margin-bottom: 12
 
 --- page-heading-loop:
 $loop$: $page-heading.children as $obj

@@ -21,7 +21,7 @@ lang: ftd
 
 \-- import: lib
 
-\-- lib.h1: Hello World
+\-- lib.h0: Hello World
 
 -- ft.markdown:
 
@@ -74,7 +74,7 @@ lang: ftd
 
 \-- import: lib
 
-\-- lib.h1: Hello World
+\-- lib.h2: Hello World
 
 -- ft.markdown:
 
@@ -100,7 +100,7 @@ lang: ftd
 
 \-- import: lib
 
-\-- lib.h1: Hello World
+\-- lib.h3: Hello World
 
 -- ft.markdown:
 
