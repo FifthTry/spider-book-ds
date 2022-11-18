@@ -110,6 +110,15 @@ exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
 irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
 nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa 
 
+
+
+
+
+
+
+
+
+
 -- ftd.column page:
 fpm.toc-item list sections: $sitemap.sections
 fpm.toc-item list sub-sections: $sitemap.subsections
@@ -140,7 +149,6 @@ current-subsection: $current-subsection
 current-page: $current-page
 toc: $toc
 sub-sections: $sub-sections
-
 
 --- container: ftd.main
 
@@ -254,7 +262,6 @@ link: $obj.url
 
 --- container: main-column
 
-
 --- ftd.row:
 max-width: $width
 max-width if $widthfill: fill
@@ -263,16 +270,12 @@ align : center
 max-width if $toc is not empty: fill
 width: fill
 
-
 --- ftd.column:
 width if not $is-mobile: percent 20
-
-
 
 --- ftd.column:
 if: not $is-mobile
 width: fill
-
 
 --- render-toc:
 if: $toc is not empty
@@ -312,12 +315,10 @@ padding-horizontal: 24
 align: center
 width: fill
 
-
 --- ftd.row:
 wrap: true
 id: main-container
 spacing: space-between
-
 
 --- h0: $title
 if: $title is not null
@@ -348,7 +349,6 @@ $on-click$: toggle $show-section
 spacing: 26
 margin-bottom: 8
 
-
 --- ftd.text: Table of Content
 role: $fpm.type.fine-print
 color: $fpm.color.main.text-strong
@@ -359,7 +359,6 @@ style: medium
 --- ftd.row:
 align: right
 height: fill
-
 
 --- ftd.row:
 align: center
@@ -393,12 +392,9 @@ padding-vertical: 12
 padding-horizontal: 24
 overflow-x: auto
 
-
-
 --- render-page-heading:
 if: $page-heading is not empty
 page-heading-obj: $page-heading
-
 
 --- container: center-content
 
@@ -414,7 +410,6 @@ width if $page-heading is not empty: fill
 if: $page-heading is not empty
 page-heading-obj: $page-heading
 
-
 --- container: main-column
 
 \--- ftd.column:
@@ -422,7 +417,6 @@ width: fill
 margin-top: 72
 padding-horizontal if not $is-mobile: 42
 id: footer-box
-
 
 \--- social-card:
 social-list: $social-list
@@ -458,7 +452,6 @@ url: $obj.url
 children: $obj.children
 $loop$: $sitelinks-3-column as $obj
 
-
 --- container: main-column
 
 --- ftd.row:
@@ -466,10 +459,14 @@ width: fill
 border-top: 1
 border-color: $fpm.color.main.text
 
-
 --- footer:
 copyright: $copyright
 legal-links: $legal-links
+
+
+
+
+
 
 
 
@@ -506,7 +503,6 @@ url: $obj.url
 
 --- container: footer-mobile-container
 
-
 /--- ls.switcher:
 languages: $languages
 current: English
@@ -535,8 +531,6 @@ title: $obj.title
 $loop$: $legal-links as $obj
 url: $obj.url
 
-
-
 --- container: show-container
 
 --- ftd.row:
@@ -560,6 +554,12 @@ text-align: right
 role: $fpm.type.copy-tight
 color: $fpm.color.main.text-strong
 white-space: nowrap
+
+
+
+
+
+
 
 
 
@@ -591,12 +591,16 @@ color: $fpm.color.main.text-strong
 
 
 
+
+
+
+
+
 -- ftd.column footer-loop:
 caption title:
 optional string url:
 fpm.toc-item list children:
 width: fill
-
 
 --- ftd.text:  $title
 if: $url is not null
@@ -621,13 +625,11 @@ url: $obj.url
 children: $obj.children
 $loop$: $children as $obj
 
-
 -- ftd.column footer-children:
 caption title:
 optional string url:
 fpm.toc-item list children:
 padding-bottom : 12
-
 
 --- ftd.text:  $title
 if: $url is not null
@@ -651,6 +653,12 @@ title: $obj.title
 url: $obj.url
 children: $obj.children
 $loop$: $children as $obj
+
+
+
+
+
+
 
 
 
@@ -680,6 +688,12 @@ $loop$: $social-list as $obj
 
 
 
+
+
+
+
+
+
 -- ftd.row social-loop:
 ftd.image-src logo:
 string url:
@@ -690,18 +704,6 @@ src: $logo
 width: 24
 height: auto
 link: $url
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -725,10 +727,14 @@ toc: $obj
 
 
 
+
+
+
+
+
 -- ftd.column render-page-heading:
 fpm.toc-item list page-heading-obj:
 width: fill
-
 
 --- ftd.text: Table of Contents
 if: not $is-mobile
@@ -749,6 +755,7 @@ padding-left: $fpm.space.space-4
 --- page-heading-loop:
 $loop$: $page-heading-obj as $obj
 page-heading: $obj
+
 
 
 
@@ -789,15 +796,6 @@ page-heading: $obj
 
 
 
-
-
-
-
-
-
-
-
-
 -- ftd.column toc-loop:
 fpm.toc-item toc:
 id: toc-instance
@@ -815,20 +813,18 @@ border-right-radius: 25
 background-color if $toc.is-active: $fpm.color.main.cta-secondary.border
 
 --- ftd.row:
-id: jjjj
+id: toc-childs
 
 --- ftd.row:
 if: not $open
 width: 24
-
 
 --- ftd.image:
 if: $toc.children is not empty
 src: $assets.files.static.down.svg
 $on-click$: $open= true
 
-
---- container: jjjj
+--- container: toc-childs
 
 --- ftd.row:
 if: $open
@@ -841,8 +837,6 @@ $on-click$: $open= false
 width: 12
 padding-top: 8
 margin-left: 6
-
-
 
 --- container: first-row
 
@@ -870,8 +864,6 @@ padding-left: 10
 width: fill
 if: $open
 
-
-
 --- childrens:
 $loop$: $toc.children as $obj
 toc: $obj
@@ -888,7 +880,6 @@ toc: $obj
 -- ftd.column childrens:
 fpm.toc-item toc:
 width: fill
-
 
 --- ftd.row:
 padding-vertical:8
@@ -911,7 +902,6 @@ color if $toc.is-active: $fpm.color.main.cta-primary.base
 --- ftd.column:
 if: $toc.children is not empty
 width: fill
-
 
 --- childrens:
 $loop$: $toc.children as $obj
