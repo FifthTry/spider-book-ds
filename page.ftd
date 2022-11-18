@@ -2,26 +2,11 @@
 -- import: fpm
 
 
--- optional string copyright: © 2022 FifthTry. All rights reserved
-
--- boolean sidebar-open: false
-
--- fpm.sitemap-data sitemap:
-$processor$: sitemap
 
 -- boolean is-mobile: false
 
 -- is-mobile: true
 if: $ftd.device == mobile
-
-
--- optional string site-name:  CHROME DEVELOPER
-
--- optional ftd.image-src site-logo:
-dark: $assets.files.static.fifthtry-logo.svg.dark
-light: $assets.files.static.fifthtry-logo.svg..light
-
--- string site-url: NA
 
 
 

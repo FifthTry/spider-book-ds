@@ -92,13 +92,12 @@ nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
 
 
 -- ft.page:
-widthfill: true
 
--- project-card: TOOLS & LIBRARIES
+-- project-card: TOOLS & LIBRARIES:
 project-list: $project-list
 
 
--- project-card: TOOLS & LIBRARIES
+-- project-card: Some more TOOLS:
 project-list: $projects-list
 
 

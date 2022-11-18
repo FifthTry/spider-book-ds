@@ -13,7 +13,7 @@ download-base-url: https://raw.githubusercontent.com/fifthtry/spider-book-ds/mai
 
 -- fpm.sitemap:
 
-# Home: /
+# Home: docs/doc
 icon: /static/home-icon.png
 
 
