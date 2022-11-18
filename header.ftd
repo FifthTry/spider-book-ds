@@ -86,7 +86,7 @@ width: fill
 padding-vertical: 12
 padding-horizontal: 24
 border-bottom: 1
-border-color: $fpm.color.main.custom.six
+border-color: $fpm.color.main.custom.one
 width: fill
 id: j-onej
 

@@ -11,6 +11,15 @@
 -- boolean show-section: false
 
 
+-- string github: NA
+
+-- boolean parent-brand: true
+-- optional string brand-caption:
+
+-- optional string brand-site-name: 
+-- optional string brand-site-url: index.html
+-- optional ftd.image-src brand-site-logo:
+
 -- fpm.sitemap-data sitemap:
 $processor$: sitemap
 
@@ -33,9 +42,6 @@ light: $assets.files.static.fifthtry-logo.svg.light
 
 
 
--- page: 
-
-
 -- fpm.toc-item list languages:
 $processor$: toc
 
@@ -49,19 +55,12 @@ $processor$: toc
 - footer-one:
   - level: /
   - level: /
-  - level: /
-  - level: /
-  - level: /
+
 - footer-two:
   - level: /
   - level: /
-  - level: /
-  - level: /
-  - level: /
+
 - footer-three:
-  - level: /
-  - level: /
-  - level: /
   - level: /
   - level: /
 
@@ -95,6 +94,22 @@ url: https://discord.gg/nnBjPtrN
 logo: $assets.files.static.linkedin.png
 url: /
 
+
+-- page:  Hello World
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
+nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa 
+
+
+
+-- h0: Lorem ipsum dolor
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
+nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa 
 
 -- ftd.column page:
 fpm.toc-item list sections: $sitemap.sections
@@ -139,9 +154,9 @@ if: not $is-mobile
 padding-horizontal: 12
 padding-top: 32
 border-right: 1
-min-height: calc ( 100vh - 2px)
+min-height: calc ( 100vh - 86px)
 height: fill
-border-color: $fpm.color.main.text
+border-color: $fpm.color.main.custom.one
 spacing: 24
 max-width: 80
 
@@ -178,9 +193,10 @@ if: $current-section is not null
 --- ftd.text: $current-section.title
 if: $current-section.title is not null
 role: $fpm.type.copy-tight
-color: $fpm.color.main.text-strong
+color: $fpm.color.main.cta-primary.base
 link: $current-section.url
-margin-right: 8
+margin-right: 16
+style: medium
 
 --- ftd.row:
 if: $current-subsection.title is not null
@@ -191,17 +207,18 @@ width:  auto
 height: 16
 align: center
 padding-top: 4
-margin-right: 8
+margin-right: 16
 
 --- container: header-container
 
 --- ftd.text: $current-subsection.title
 if: $current-subsection.title is not null
 role: $fpm.type.copy-tight
-color: $fpm.color.main.text-strong
+color: $fpm.color.main.cta-primary.base
 link: $current-subsection.url
 white-space: nowrap
-margin-right: 8
+margin-right: 16
+style: medium
 
 --- ftd.row:
 if: $current-page.title is not null
@@ -211,17 +228,18 @@ src: $assets.files.static.right-arrow.svg
 width:  auto
 height: 16
 padding-top: 4
-margin-right: 8
+margin-right: 16
 
 --- container:header-container
 
 --- ftd.text:$current-page.title 
 if: $current-page.title is not null
 role: $fpm.type.copy-tight
-color: $fpm.color.main.text-strong
+color: $fpm.color.main.cta-primary.base
 link: $current-page.url 
 white-space: nowrap
-margin-right: 8
+margin-right: 16
+style: medium
 
 --- container: selection-container
 
@@ -237,6 +255,78 @@ link: $obj.url
 
 --- container: main-column
 
+
+--- ftd.row:
+max-width: $width
+max-width if $widthfill: fill
+id: main-row
+align : center
+max-width if $toc is not empty: fill
+width: fill
+
+
+--- ftd.column:
+width if not $is-mobile: percent 20
+
+
+
+--- ftd.column:
+if: not $is-mobile
+width: fill
+
+
+--- render-toc:
+if: $toc is not empty
+toc-obj: $toc
+
+--- container: main-row
+
+--- ftd.column:
+align: center
+width: fill
+
+--- ftd.column:
+width if $page-heading is not empty: percent 78
+width if $toc is empty: percent 100
+width: fill
+width if $is-mobile: fill
+align: center
+
+--- ftd.row:
+align if $toc is not empty: center
+id: center-content
+width if $toc is  empty: fill
+
+--- ftd.column:
+max-width if $page-heading is not empty: 748
+max-width: $width
+max-width if $widthfill: fill
+width if $toc is empty: $width
+width if $widthfill: fill
+align: center
+min-height : calc 100vh - 305px
+padding-horizontal if not $widthfill: 24
+padding-vertical: 24
+padding-horizontal: 24
+
+--- ftd.column:
+align: center
+width: fill
+
+
+--- ftd.row:
+wrap: true
+id: main-container
+spacing: space-between
+
+
+--- h0: $title
+if: $title is not null
+
+--- markdown:
+if: $body is not null
+
+$body
 --- ftd.column:
 if: $is-mobile
 width: fill
@@ -251,17 +341,19 @@ id: main-one-column
 
 --- ftd.row:
 width: fill
-background-color: $fpm.color.main.cta-secondary.hover
+background-color: $fpm.color.main.custom.one
 id: change-container
 padding-horizontal: $fpm.space.space-5
 padding-vertical: 8
 $on-click$: toggle $show-section 
 spacing: 26
+margin-bottom: 8
 
 
 --- ftd.text: Table of Content
 role: $fpm.type.fine-print
 color: $fpm.color.main.text-strong
+style: medium
 
 --- container: change-container
 
@@ -293,7 +385,7 @@ padding-top: 4
 --- ftd.column: 
 if: $show-section
 width: fill
-background-color: $fpm.color.main.background.step-2
+background-color: $fpm.color.main.background.base
 
 --- ftd.column:
 width: fill
@@ -302,82 +394,18 @@ padding-vertical: 12
 padding-horizontal: 24
 overflow-x: auto
 
+
+
 --- render-page-heading:
 if: $page-heading is not empty
 page-heading-obj: $page-heading
-
-
---- container: main-column
-
---- ftd.row:
-max-width: $width
-max-width if $widthfill: fill
-id: main-row
-align if $toc is empty: center
-max-width if $toc is not empty: fill
-width: fill
-
-
---- ftd.column:
-if: $current-page is not null
-width if not $is-mobile: percent 20
-
---- ftd.column:
-if: not $is-mobile
-width: fill
-
---- render-toc:
-if: $toc is not empty
-toc-obj: $toc
-
---- container: main-row
-
---- ftd.column:
-width if $page-heading is not empty: percent 78
-width: fill
-width if $is-mobile: fill
-
---- ftd.row:
-align  if $toc is not empty: center
-id: center-content
-width if $toc is  empty: fill
-
---- ftd.column:
-max-width if $page-heading is not empty: 748
-max-width: $width
-max-width if $widthfill: fill
-width if $toc is empty: $width
-width if $widthfill: fill
-align: center
-min-height : calc 100vh - 512px
-padding-horizontal if not $widthfill: 24
-padding-vertical: 24
-padding-horizontal: 24
-
---- ftd.column:
-align: center
-width: fill
-
-
---- ftd.row:
-wrap: true
-id: main-container
-spacing: space-between
-
-
---- h0: $title
-if: $title is not null
-
---- markdown:
-if: $body is not null
-
-$body
 
 
 --- container: center-content
 
 --- ftd.column:
 if: $page-heading is not empty
+width: 300
 
 --- ftd.column:
 if: not $is-mobile
@@ -390,17 +418,17 @@ page-heading-obj: $page-heading
 
 --- container: main-column
 
---- ftd.column:
+\--- ftd.column:
 width: fill
 margin-top: 72
 padding-horizontal if not $is-mobile: 42
 id: footer-box
 
 
---- social-card:
+\--- social-card:
 social-list: $social-list
 
---- ftd.row:
+\--- ftd.row:
 if: not $is-mobile
 width: fill
 border-bottom: 1
@@ -408,15 +436,15 @@ border-color: $fpm.color.main.text
 padding-top: 42
 padding-bottom: 30
 
---- footer-loop:
+\--- footer-loop:
 title: $obj.title
 url: $obj.url
 children: $obj.children
 $loop$: $sitelinks-3-column as $obj
 
---- container: footer-box
+\--- container: footer-box
 
---- ftd.column:
+\--- ftd.column:
 if: $is-mobile
 width: fill
 border-bottom: 1
@@ -425,7 +453,7 @@ padding-top: 42
 padding-bottom: 30
 padding-horizontal if $is-mobile: 24
 
---- footer-loop:
+\--- footer-loop:
 title: $obj.title
 url: $obj.url
 children: $obj.children
@@ -433,6 +461,12 @@ $loop$: $sitelinks-3-column as $obj
 
 
 --- container: main-column
+
+--- ftd.row:
+width: fill
+border-top: 1
+border-color: $fpm.color.main.text
+
 
 --- footer:
 copyright: $copyright
@@ -474,7 +508,7 @@ url: $obj.url
 --- container: footer-mobile-container
 
 
---- ls.switcher:
+/--- ls.switcher:
 languages: $languages
 current: English
 switcher-text: choose languages
@@ -510,7 +544,7 @@ url: $obj.url
 align: right
 margin-top:4
 
---- ls.switcher:
+/--- ls.switcher:
 languages: $languages
 current: English
 switcher-text: choose languages
@@ -682,6 +716,7 @@ link: $url
 -- ftd.column render-toc:
 fpm.toc-item list toc-obj:
 width: fill
+id:dddd
 
 --- toc-loop:
 $loop$: $toc-obj as $obj
@@ -695,10 +730,19 @@ toc: $obj
 fpm.toc-item list page-heading-obj:
 width: fill
 
+
 --- ftd.text: Table of Contents
+if: not $is-mobile
 role: $fpm.type.fine-print
 color: $fpm.color.main.text
-margin-bottom: 12
+margin-bottom: 28
+white-space:nowrap
+margin-top: 32
+style: medium
+width: fill
+
+--- ftd.column: 
+width: fill
 
 --- page-heading-loop:
 $loop$: $page-heading-obj as $obj
@@ -720,9 +764,9 @@ width: fill
 link: $page-heading.url
 text: $page-heading.title
 role: $fpm.type.fine-print
-color: $fpm.color.main.text
-margin-bottom: 8
-
+color: $fpm.color.main.cta-primary.base
+margin-bottom: 12
+width: fill
 
 --- container: ftd.main
 
@@ -733,7 +777,7 @@ width: fill
 padding-left: 12
 margin-bottom: 8
 border-left: 1
-border-color: $fpm.color.main.background.code
+border-color: $fpm.color.main.custom.one
 
 --- page-heading-loop:
 $loop$: $page-heading.children as $obj
@@ -846,6 +890,10 @@ toc: $obj
 
 -- ftd.column childrens:
 fpm.toc-item toc:
+width: fill
+
+
+--- ftd.row:
 padding-vertical:8
 padding-left: 48
 background-color if $MOUSE-IN: $fpm.color.main.accent.tertiary
@@ -861,8 +909,12 @@ min-width: fit-content
 color: $fpm.color.main.text
 color if $toc.is-active: $fpm.color.main.cta-primary.base
 
+--- container: ftd.main
+
 --- ftd.column:
 if: $toc.children is not empty
+width: fill
+
 
 --- childrens:
 $loop$: $toc.children as $obj
@@ -892,8 +944,8 @@ width: fill
 --- ftd.image:
 src: $font-icon
 if: $font-icon is not null
-width: 26
-height: auto
+width: 24
+height: 24
 align: center
 
 --- ftd.text: $title
@@ -1306,4 +1358,36 @@ white-space: nowrap
 color: $fpm.color.main.text-strong
 color if $is-active: $fpm.color.main.cta-primary.base
 role: $fpm.type.copy-tight
+style:medium
+
+
+
+-- ftd.column output:
+caption caption: Output
+width: fill
+open: true
+append-at: output-container
+padding-top: 12
+
+--- ftd.text: $caption
+color: $fpm.color.main.text
+background-color: $fpm.color.main.background.base
+border-top-radius: 2
+padding-top: 3
+padding-bottom: 3
+padding-left: 10
+padding-right: 10
+role: $fpm.type.label-big
+
+--- ftd.column:
+border-width: 1
+border-color: $fpm.color.main.text
+width: fill
+id: output-container
+padding-top: 30
+padding-bottom: 30
+padding-left: 20
+padding-right: 20
+border-radius: 2
+background-color: $fpm.color.main.background.base
 
