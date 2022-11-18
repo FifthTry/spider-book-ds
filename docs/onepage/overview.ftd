@@ -17,9 +17,9 @@ v: ZoCGwt_nLbk
 src: $assets.files.static.box-image.png
 width: fill
 
-you are building, people will be importing it etc, so pick the name accordingly:
+You are building, people will be importing it etc, so pick the name accordingly:
 
--- ft.h3: Heading 3 blog post list title
+-- ft.h1: Heading 1 blog post list title
 id: one
 
 Lorem ipsum dolor sit amet, an ius porro denique eleifend, ne natum dolore 

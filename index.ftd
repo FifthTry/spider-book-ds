@@ -53,26 +53,25 @@ $processor$: toc
 $processor$: toc
 
 - footer-one:
-  - level: /
-  - level: /
+  - Footer Link 1: /
+  - Footer Link 2: /
 
 - footer-two:
-  - level: /
-  - level: /
+  - Footer Link 3: /
+  - Footer Link 4: /
 
 - footer-three:
-  - level: /
-  - level: /
+  - Footer Link 5: /
+  - Footer Link 6: /
 
 
 -- fpm.toc-item list legal-links:
 $processor$: toc
 
-- privacy: /
-- legal: /
-- level: /
-- level: /
-- level: /
+- About Us: https://www.fifthtry.com/
+- Privary Policy: https://www.fifthtry.com/
+- Terms of Use: https://www.fifthtry.com/
+- Connect with Us: https://www.fifthtry.com/
 
 -- record social:
 ftd.image-src logo:
@@ -286,8 +285,8 @@ align: center
 width: fill
 
 --- ftd.column:
-width if $page-heading is not empty: percent 78
-width if $toc is empty: percent 100
+;width if $page-heading is not empty: percent 78
+;width if $toc is empty: percent 100
 width: fill
 width if $is-mobile: fill
 align: center
@@ -940,28 +939,44 @@ ftd.color text: $fpm.color.main.text
 ftd.color text-active: $fpm.color.main.cta-primary.base
 spacing: 4
 width: fill
+id: icon-wrap
+
+--- ftd.column:
+if: $link is null 
+width: fill
 
 --- ftd.image:
-src: $font-icon
 if: $font-icon is not null
+src: $font-icon
 width: 24
 height: 24
 align: center
 
 --- ftd.text: $title
-if: $link is null 
 role:$fpm.type.copy-tight
 color: $text
 color if $is-active: $text-active
 text-align: center
 width: fill
 
---- ftd.text: $title
+--- container: ftd.main
+
+--- ftd.column:
 if: $link is not null 
+width: fill
+link: $link
+
+--- ftd.image:
+if: $font-icon is not null
+src: $font-icon
+width: 24
+height: 24
+align: center
+
+--- ftd.text: $title
 role:$fpm.type.copy-tight
 color: $text
 color if $is-active: $text-active
-link: $link
 text-align: center
 width: fill
 

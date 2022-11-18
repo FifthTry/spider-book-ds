@@ -17,29 +17,27 @@ download-base-url: https://raw.githubusercontent.com/fifthtry/spider-book-ds/mai
 icon: /static/home-icon.png
 
 
-# Doc: /doc/
+# Docs: doc/
 icon: /static/docs.png
 nav-title: Documentation
 
-## Common: /common/
+## Common: common/
 
-- overview: /heading/
-  - Youtube: /youtube/
-    - Code: /code/
-
-
+- Overview: heading/
+  - Youtube: youtube/
+    - Code: code/
 
 
-## sub-section: /docs/onepage/one-page
+## Sub-section: docs/onepage/one-page
 
-- overview: /docs/onepage/overview
-- page-one: 
+- Overview: docs/onepage/overview
+- Page one: 
 url:
-  - page-one: /docs/onepage/multiple/one
+  - Page hanging: docs/onepage/multiple/one
 
-
-# blog: /blog/blog-posts/
+# Blog: blog/blog-posts/
 icon: /static/blog.png
-## participate: /blog/participate/
+
+## Participate: blog/participate/
 
 

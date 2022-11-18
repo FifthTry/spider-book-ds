@@ -15,10 +15,10 @@ page-heading: $ph
 src: $assets.files.static.box-image.png
 width: fill
 
-you are building, people will be importing it etc, so pick the name accordingly:
+You are building, people will be importing it etc, so pick the name accordingly:
 
--- ft.h3: Heading 3 blog post list title
-id: jjjj
+-- ft.h1: Heading 1 blog post list title
+id: heading-1
 
 Lorem ipsum dolor sit amet, an ius porro denique eleifend, ne natum dolore 
 interpretaris has. Sit tantas vocibus contentiones te, est accusata definitiones 
@@ -26,15 +26,15 @@ ad. Ne rebum facilis phaedrum quo. Doctus malorum an nam.
 
 
 -- ft.h2: Heading 2 blog post list title
-id: kkkkk
+id: heading-2
 
-orem ipsum dolor sit amet, an ius porro denique eleifend, ne natum dolore 
+Lorem ipsum dolor sit amet, an ius porro denique eleifend, ne natum dolore 
 interpretaris has. Sit tantas vocibus contentiones te, est accusata definitiones 
 ad. Ne rebum facilis phaedrum quo. Doctus malorum an nam.
 
 
 -- ft.h3: Heading 3 blog post list title
-id: oo
+id: heading-3
 
 Lorem ipsum dolor sit amet, an ius porro denique eleifend, ne natum dolore 
 interpretaris has. Sit tantas vocibus contentiones te, est accusata definitiones 
