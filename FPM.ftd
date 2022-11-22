@@ -6,6 +6,7 @@ download-base-url: https://raw.githubusercontent.com/fifthtry/spider-book-ds/mai
 
 -- fpm.dependency: fifthtry.github.io/spider-book-cs as spider-book-cs
 -- fpm.dependency: fifthtry.github.io/language-switcher as ls
+-- fpm.dependency: fifthtry.github.io/product-switcher as ps
 
 -- fpm.auto-import: spider-book-cs
 -- fpm.auto-import: fpm
@@ -36,9 +37,29 @@ url:
 
 - Overview: docs/onepage/overview
 
-# Blog: blog/blog-posts/
+
+# Blog: /featured-posts/
 icon: /static/blog.png
 
-## Participate: blog/participate/
+
+## Posts: /featured-posts/
+
+- News & Culture: /blog-articles/category-1/
+
+  - A day in a city of dreams: /blog-articles/category-1/sample-post-1/
+  - Understanding process of start-up funding: /blog-articles/category-1/sample-post-2/
+
+- Technology & Learning: /blog-articles/category-2/
+
+  - What are front-end technologies we have?: /blog-articles/category-2/sample-post-3/
+  - What rust gives us?: /blog-articles/category-2/sample-post-4/
+
+## Authors: /blog-authors/amitu/
+
+- Amit Upadhyay: /blog-authors/amitu/
+- Abrar Khan: /blog-authors/abrar/
+- Arpita Jaiswal: /blog-authors/arpita/
+- Ganesh S Salunke: /blog-authors/ganesh/
+
 
 
