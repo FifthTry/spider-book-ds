@@ -2,6 +2,8 @@
 -- import: fifthtry.github.io/spider-book-ds as ft
 -- import: fifthtry.github.io/language-switcher as ls
 
+-- import: fifthtry.github.io/product-switcher as ps
+
 -- optional string copyright: © 2022 FifthTry. All rights reserved
 
 -- boolean sidebar-open: false
@@ -27,9 +29,20 @@ light: $assets.files.static.fifthtry-logo.svg.light
 
 
 -- ftd.column header:
+optional ftd.image-src brand-site-logo:
+optional string brand-site-name:
+optional string brand-site-url:
+optional string brand-caption:
+boolean parent-brand:
+ftd.color body-text-color: $fpm.color.main.text
+ftd.color shadow-color: $fpm.color.main.text-strong
 optional ftd.image-src site-logo: $assets.files.static.fifthtry-logo.svg
+ftd.color text-color: $fpm.color.main.text
 string site-url: $site-url
+ftd.color bg-color: $fpm.color.main.background.step-1
+ftd.color bg-hover: $fpm.color.main.background.base
 optional string site-name: $site-name
+ps.product-data list products: $ps.example-product
 string width:  1008
 fpm.toc-item list sections: $empty-toc
 fpm.toc-item list sub-sections: $empty-toc
@@ -54,15 +67,22 @@ $show-search: $show-search
 
 --- container: ftd.main
 
-
 --- header-desktop:
 if: not $is-mobile
 site-logo: $site-logo
 site-url: $site-url 
 site-name: $site-name
+products: $products
+bg-color: $bg-color
+bg-hover: $bg-hover
+text-color: $text-color
+body-text-color: $body-text-color
+shadow-color: $shadow-color
 
 --- header-mobile:
 if: $is-mobile
+parent-brand: $parent-brand
+brand-caption: $brand-caption
 $show-search: $show-search
 $show-mobile-sidebar: $show-mobile-sidebar
 $show-mobile-sidebar-second: $show-mobile-sidebar-second
@@ -73,14 +93,32 @@ current-section: $current-section
 current-subsection: $current-subsection
 sub-sections: $sub-sections
 sections: $sections
+products: $products
+bg-color: $bg-color
+bg-hover: $bg-hover
+text-color: $text-color
 toc: $toc
 
+
+
+
+
+
+
+
+
+
 -- ftd.column header-desktop:
+ftd.color bg-color:
+ftd.color shadow-color: 
+ftd.color bg-hover: 
+ftd.color text-color: 
+ftd.color body-text-color: $fpm.color.main.text
+ps.product-data list products:
 optional ftd.image-src site-logo: $assets.files.static.fifthtry-logo.svg
 string site-url: $site-url
 optional string site-name: $site-name
 width: fill
-
 
 --- ftd.row:
 padding-vertical: 12
@@ -90,11 +128,9 @@ border-color: $fpm.color.main.custom.one
 width: fill
 id: j-onej
 
---- container: j-onej
-
 --- ftd.row:
 link: $site-url
-width if $is-mobile: fill
+width : fill
 margin-left if $is-mobile: 24
 
 --- ftd.image:
@@ -102,14 +138,11 @@ if: $site-logo is not null
 src: $site-logo
 max-width: 110
 width if $is-mobile: 65
-align if $is-mobile: center
-
+align : center
 
 --- ftd.row:
 if: $site-name is not null
 id: text-container
-
-
 
 --- ftd.text: $site-name
 if: not $is-mobile
@@ -122,8 +155,16 @@ margin-left: 16
 if: $site-logo is null
 site-name: $site-name
 
-
 --- container: j-onej
+
+--- ps.switcher:
+products: $products
+bg-color: $bg-color
+bg-hover: $bg-hover
+text-color: $text-color
+body-text-color: $body-text-color
+shadow-color: $shadow-color
+on-left: false
 
 /--- ftd.row:
 if: not $is-mobile
@@ -152,7 +193,20 @@ margin-left: 64
 
 
 
+
+
+
+
+
 -- ftd.column header-mobile:
+ftd.color bg-color:
+ftd.color bg-hover: 
+ftd.color text-color:
+ps.product-data list products:
+optional ftd.image-src brand-site-logo:
+optional string brand-site-name:
+optional boolean parent-brand:
+optional string brand-caption:
 optional ftd.image-src site-logo: $assets.files.static.fifthtry-logo.svg
 string site-url: $site-url
 optional string site-name: $site-name
@@ -175,7 +229,6 @@ border-color: $fpm.color.main.custom.six
 width: fill
 id: j-onej
 
-
 --- ftd.image:
 src: $assets.files.static.hamber.svg
 align: center
@@ -195,7 +248,6 @@ src: $site-logo
 max-width: 110
 width if $is-mobile: 65
 align if $is-mobile: center
-
 
 --- ftd.text: $site-name
 if: $site-name is not null
@@ -224,13 +276,11 @@ width: 24
 align: center
 $on-click$: toggle $show-search
 
-
 --- container: ftd.main
 
 --- ftd.row:
 width: fill
 id: bottom-row
-
 
 --- ftd.row:
 width: auto
@@ -255,7 +305,6 @@ spacing: 8
 padding-top: 8
 overflow-x: auto
 
-
 --- header-item-mobile-view: $obj.title
 $loop$: $sub-sections as $obj
 children: $obj.children 
@@ -278,18 +327,44 @@ z-index: 4
 id: sidebar-container
 
 
---- ftd.row:
-width: fill
+--- ftd.column:
 border-bottom:1
 border-color: $fpm.color.main.custom.six
 padding-vertical: 24
 padding-horizontal: 20
+id: menu-sidebar
+width: fill
+
+--- ftd.row:
+width: fill
 
 --- ftd.image:
 src: $assets.files.static.close.png
 width: 16
 align: center
 $on-click$: toggle $show-mobile-sidebar
+
+--- ftd.row:
+width: fill
+id: first-container
+
+--- ftd.column:
+if: not $parent-brand
+width: fill
+border-bottom: 1
+border-color: $fpm.color.main.border
+id: logo-container
+padding-bottom: $fpm.space.space-6
+
+--- ftd.column:
+if: not $parent-brand
+
+--- ftd.text: $brand-caption
+role: $fpm.type.fine-print
+color: $fpm.color.main.text-strong
+padding-bottom: $fpm.space.space-2
+
+--- container: first-container
 
 --- ftd.row:
 link: $site-url
@@ -310,6 +385,17 @@ white-space: nowrap
 padding-top: 4
 margin-left: 8
 
+--- container:  menu-sidebar
+
+--- ftd.row:
+if: $products is not empty
+padding-top: $fpm.space.space-4
+
+--- ps.switcher:
+products: $products
+bg-color: $bg-color
+text-color: $text-color
+
 --- container: sidebar-container
 
 --- ftd.column:
@@ -326,13 +412,10 @@ border-active: $fpm.color.main.text
 text: $fpm.color.main.text-strong
 text-active: $fpm.color.main.cta-primary.base
 
-
-
 --- container: sidebar-container
 
 --- ftd.column:
 if: $current-subsection.title is not null
-
 
 --- ftd.column:
 if: $show-mobile-sidebar-second
@@ -346,7 +429,6 @@ top: 0
 background-color: $fpm.color.main.background.base
 z-index: 4
 id: sidebar-container-one
-
 
 --- ftd.row:
 width: fill
@@ -412,6 +494,9 @@ $on-click$: toggle $show-mobile-sidebar
 
 
 
+
+
+
 -- ftd.column search-sidebar:
 anchor: window
 top: 0
@@ -422,14 +507,11 @@ background-color:  $fpm.color.main.background.base
 z-index: 999
 boolean $show-search:
 
-
-
 --- ftd.column:
 padding-vertical: 8
 padding-horizontal: 8
 width: fill
 max-width: 800
-
 
 --- ftd.row:
 padding-horizontal: 24
@@ -441,7 +523,6 @@ align if not $is-mobile: center
 background-color: $fpm.color.main.accent.tertiary
 width: fill
 border-radius: 50
-
 
 --- ftd.image:
 src: $assets.files.static.close.png
@@ -462,14 +543,6 @@ padding-vertical: $fpm.space.space-3
 padding-left: 48
 padding-right: $fpm.space.space-4
 border-radius: 50
-
-
-
-
-
-
-
-
 
 
 
@@ -522,18 +595,6 @@ white-space: nowrap
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 -- ftd.column render-toc:
 fpm.toc-item list toc-obj:
 width: fill
@@ -541,22 +602,6 @@ width: fill
 --- toc-loop:
 $loop$: $toc-obj as $obj
 toc: $obj
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -588,7 +633,6 @@ id: j-one
 
 --- ftd.row:
 if: not $open
-
 
 --- ftd.image:
 if: $toc.children is not empty
