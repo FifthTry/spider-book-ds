@@ -16,7 +16,7 @@ if: $ftd.device == mobile
 -- hero-section: LOREM LIPSUM
 image-hero: $assets.files.static.hero-bg.jpg
 hero-cta-text: click here to know
-url: /blog/participate
+url: blog/participate
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
 exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
@@ -30,8 +30,8 @@ feature-image: $assets.files.static.hero-bg.jpg
 people-list: $people-list
 date: aug 21 2021
 cta-text: click 
-cta-text-url: /blog/participate
-url: /blog/participate
+cta-text-url: blog/participate
+url: blog/participate
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
 
@@ -39,7 +39,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 docs-list: $docs-list
 logo: $assets.files.static.chrome.png
 cta: all documentation
-cta-url: /docs/doc/
+cta-url: docs/doc/
 
 
 -- featured-card-one: LOREM LIPSUM
@@ -49,8 +49,8 @@ feature-image: $assets.files.static.hero-bg.jpg
 people-list: $people-list
 date: aug 21 2021
 cta-text: click 
-cta-text-url:  /blog/participate
-url: /blog/participate
+cta-text-url:  blog/participate
+url: blog/participate
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
 
@@ -67,7 +67,7 @@ version-list: $version-list
 -- info-card: LOREM LIPSUM
 logo: $assets.files.static.hero-bg.jpg
 cta-text: click
-cta-text-url: /
+cta-text-url: index.html
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
 exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
@@ -906,19 +906,19 @@ string url:
 
 -- docs-list: cDoc
 image: $assets.files.static.doc-framework.png
-url: /docs/onepage/one-page
+url: docs/onepage/one-page
 
 -- docs-list: FPM
 image: $assets.files.static.fpm.png
-url: /docs/onepage/one-page
+url: docs/onepage/one-page
 
 -- docs-list: FTD
 image: $assets.files.static.ftd.png
-url: /docs/onepage/one-page
+url: docs/onepage/one-page
 
 -- docs-list: DF
 image: $assets.files.static.home.png
-url: /docs/onepage/one-page
+url: docs/onepage/one-page
 
 -- ftd.column docs-card:
 width: fill

@@ -11,7 +11,7 @@
 -- boolean show-section: false
 
 
--- string github: NA
+-- string github: index.html
 
 -- boolean parent-brand: true
 -- optional string brand-caption:
@@ -38,7 +38,7 @@ dark: $assets.files.static.fifthtry-logo.svg.dark
 light: $assets.files.static.fifthtry-logo.svg.light
 
 
--- string site-url: /
+-- string site-url: index.html
 
 
 

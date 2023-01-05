@@ -12,12 +12,12 @@ body body:
 -- show-toc list toc-list:
 
 -- toc-list: Overview
-url: /docs/onepage/overview
+url: docs/onepage/overview
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
 
 -- toc-list: Page
-url: /docs/onepage/page
+url: docs/onepage/page
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
 
